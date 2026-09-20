@@ -43,8 +43,25 @@
   #texto { flex:1; overflow-y:auto; padding:1rem 1.2rem 4rem }
   #texto h2 { font:400 1.5rem/1.05 "Arial Narrow",sans-serif; margin:0 0 .3rem }
   #texto .meta { margin:0 0 1.2rem; color:var(--tenue); font-size:.8rem }
-  #texto p.barra { margin:0 0 .7rem; max-width:66ch }
+  #texto p.barra { margin:0 0 .7rem; max-width:66ch; position:relative }
   #texto .contra { font:italic .65em Georgia,serif; color:var(--tenue) }
+  /* anotaciones Jev */
+  #texto p.ruido { background:repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, var(--acento) 14%, transparent) 6px 12px); border-radius:3px; cursor:help }
+  #texto p.mixto { background:repeating-linear-gradient(-45deg, transparent 0 6px, color-mix(in srgb, #d8a012 16%, transparent) 6px 12px); border-radius:3px; cursor:help }
+  #texto p.corrupta { background:color-mix(in srgb, #888 14%, transparent); border-radius:3px; cursor:help }
+  #texto .tag { position:absolute; top:-.55rem; right:-.3rem; font:600 .6rem/1 "Arial Narrow",sans-serif;
+                padding:.15rem .3rem; border-radius:3px; background:var(--papel2); color:var(--tenue);
+                border:1px solid var(--linea) }
+  #texto p.ruido .tag { color:var(--acento); border-color:var(--acento) }
+  #resumen { margin:0 0 1rem; font-size:.78rem; color:var(--tenue) }
+  #resumen .chips { display:inline-flex; gap:.4rem; margin-left:.4rem; vertical-align:middle }
+  #resumen .chip { border:1px solid var(--linea); border-radius:10px; padding:.05rem .45rem; background:var(--campo) }
+  #filtro-j { margin-left:.5rem; font:inherit; font-size:.78rem; border:1px solid var(--linea);
+              background:var(--campo); color:var(--tinta); padding:.15rem .3rem }
+  #lista .mini { display:inline-block; margin-left:.35rem; font:600 .62rem/1 "Arial Narrow",sans-serif;
+                 padding:.1rem .3rem; border-radius:3px; background:var(--papel2); color:var(--tenue);
+                 border:1px solid var(--linea); vertical-align:1px }
+  #lista .mini.ru { color:var(--acento); border-color:color-mix(in srgb, var(--acento) 50%, transparent) }
 </style>
 </head>
 <body>
@@ -52,6 +69,12 @@
   <button id="volver" hidden>← Batallas</button>
   <h1>Batallas de gallos</h1>
   <input id="q" type="search" placeholder="Buscar MC, evento o ronda…">
+  <select id="filtro-j" title="Filtrar por anotación de Jev">
+    <option value="">Todas</option>
+    <option value="limpias">Sin ruido</option>
+    <option value="ruido">Con ruido</option>
+    <option value="corrupta">Con bloques corruptos</option>
+  </select>
   <button id="tema" title="Cambiar entre claro y oscuro" aria-label="Cambiar entre claro y oscuro">◐</button>
 </header>
 <main>
@@ -68,25 +91,49 @@
   const cache = {};
   let filtro = CORPUS;
 
-  // junta las lineas de subtitulo en parrafos legibles de ~45 palabras
+  // junta las lineas de subtitulo en parrafos legibles de ~45 palabras,
+  // devolviendo también el índice de línea en el que empieza cada párrafo
   function parrafos(lineas) {
-    const out = []; let cur = [], n = 0;
-    for (const l of lineas) {
-      const t = String(l || '').replace(/\[[^\]]*\]/g, ' ').replace(/\s+/g, ' ').trim();
+    const out = []; let cur = [], n = 0, i0 = 0;
+    for (let i = 0; i < lineas.length; i++) {
+      const t = String(lineas[i] || '').replace(/\[[^\]]*\]/g, ' ').replace(/\s+/g, ' ').trim();
       if (!t) continue;
+      if (!cur.length) i0 = i;
       cur.push(t); n += t.split(' ').length;
-      if (n >= 45) { out.push(cur.join(' ')); cur = []; n = 0; }
+      if (n >= 45) { out.push({ t: cur.join(' '), i0 }); cur = []; n = 0; }
     }
-    if (cur.length) out.push(cur.join(' '));
+    if (cur.length) out.push({ t: cur.join(' '), i0 });
     return out;
+  }
+
+  // etiqueta Jev de un párrafo según el bloque que lo contiene
+  function tagDe(i0, bloques) {
+    if (!bloques) return null;
+    return bloques.find(b => i0 >= b.i0 && i0 < b.i1) || null;
+  }
+  function claseJ(b) {
+    if (!b) return '';
+    if (b.ruido > 0.7) return 'ruido';
+    if (b.calidad === 'corrupta') return 'corrupta';
+    if (b.pct_rapeo < 3.5) return 'mixto';
+    return '';
+  }
+  function tituloJ(b) {
+    if (!b) return '';
+    return `Jev · ruido ${b.ruido.toFixed(2)} · rapeo ${b.rapeo.toFixed(2)} (${Math.round(b.pct_rapeo/5*100)}%) · ` +
+           `rima ${b.rima.toFixed(1)}/5 · punch ${b.punch.toFixed(1)}/5 · ${b.calidad}`;
   }
 
   function lista() {
     $('#lista').innerHTML = filtro.map(b => {
       const quien = (b.mcs || []).join(' vs ') || b.title || b.video_id;
       const donde = [b.event, b.round, b.year].filter(Boolean).join(' · ');
+      const j = b.jev;
+      const chips = j ? `<span class="mini${j.pct_ruido > 30 ? ' ru' : ''}" title="${j.pct_ruido}% de bloques con ruido">${j.pct_ruido}%r</span>` +
+                        `<span class="mini" title="rima media de Jev">R${j.rima.toFixed(1)}</span>` +
+                        `<span class="mini" title="punch medio de Jev">P${j.punch.toFixed(1)}</span>` : '';
       return `<li><button data-id="${b.video_id}">
-        <b>${esc(quien)}</b><span>${esc(donde)}</span></button></li>`;
+        <b>${esc(quien)}${chips}</b><span>${esc(donde)}</span></button></li>`;
     }).join('') || '<li style="padding:.6rem">Nada con ese filtro.</li>';
   }
 
@@ -97,8 +144,16 @@
 
   function filtra() {
     const q = $('#q').value.trim().toLowerCase();
-    filtro = CORPUS.filter(b => !q ||
-      [b.title, b.event, b.round, (b.mcs || []).join(' ')].join(' ').toLowerCase().includes(q));
+    const fj = $('#filtro-j').value;
+    filtro = CORPUS.filter(b => {
+      if (q && ![b.title, b.event, b.round, (b.mcs || []).join(' ')].join(' ').toLowerCase().includes(q)) return false;
+      if (fj && b.jev) {
+        if (fj === 'limpias' && b.jev.pct_ruido > 15) return false;
+        if (fj === 'ruido' && b.jev.pct_ruido <= 15) return false;
+        if (fj === 'corrupta' && !(b.jev.n_corruptos > 0)) return false;
+      }
+      return true;
+    });
     lista();
   }
 
@@ -112,9 +167,24 @@
       const mcs = (b.mcs || []).map(esc);
       const meta = [b.event, b.round, b.year, b.format,
                     nf.format(b.n_words) + ' palabras'].filter(Boolean).join(' · ');
+      const j = b.bloques ? (() => {
+        const utiles = b.bloques.filter(x => x.ruido < 0.7);
+        const r = a => (a.reduce((s, x) => s + x, 0) / Math.max(a.length, 1)).toFixed(2);
+        const nCorr = b.bloques.filter(x => x.calidad === 'corrupta').length;
+        return { pctRuido: Math.round(100 * (b.bloques.length - utiles.length) / b.bloques.length),
+                 rima: r(utiles.map(x => x.rima)), punch: r(utiles.map(x => x.punch)), nCorr };
+      })() : null;
+      const resumen = j ? `<div id="resumen">Jev: <span class="chip">${j.pctRuido}% ruido</span>` +
+        `<span class="chips"><span class="chip">rima ${j.rima}/5</span><span class="chip">punch ${j.punch}/5</span>` +
+        (j.nCorr ? `<span class="chip">${j.nCorr} corruptos</span>` : '') + `</span></div>` : '';
       caja.innerHTML = `<h2>${mcs.length ? mcs.join(' <span class="contra">contra</span> ') : esc(b.title || id)}</h2>
-        <p class="meta">${esc(meta)} · <a href="${b.url}" target="_blank" rel="noopener">vídeo</a></p>` +
-        parrafos(b.lines).map(p => `<p class="barra">${esc(p)}</p>`).join('');
+        <p class="meta">${esc(meta)} · <a href="${b.url}" target="_blank" rel="noopener">vídeo</a></p>` + resumen +
+        parrafos(b.lines).map(p => {
+          const t = tagDe(p.i0, b.bloques);
+          const cls = claseJ(t);
+          const tag = cls ? `<span class="tag">${cls === 'ruido' ? 'ruido' : cls === 'corrupta' ? 'corrupto' : 'mixto'}</span>` : '';
+          return `<p class="barra ${cls}" ${t ? `title="${esc(tituloJ(t))}"` : ''}>${tag}${esc(p.t)}</p>`;
+        }).join('');
       caja.scrollTop = 0;
     } catch (e) {
       caja.innerHTML = '<p class="meta">No se pudo cargar esa batalla.</p>';
@@ -122,6 +192,7 @@
   }
 
   $('#q').addEventListener('input', filtra);
+  $('#filtro-j').addEventListener('change', filtra);
   $('#volver').addEventListener('click', portada);
   $('#tema').addEventListener('click', function () {
     var n = document.documentElement.dataset.tema === 'oscuro' ? 'claro' : 'oscuro';
