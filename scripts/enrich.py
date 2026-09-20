@@ -11,8 +11,11 @@ import json, re, sys, os, unicodedata
 
 SEP = re.compile(r'\s*(?:[–—─]|\.\s|\s\|\s|\s/\s|\s-\s)\s*')
 # marcas de liga que se cuelan al final del nombre del MC: 'ZASKO FMS BILBAO Jornada 5'
-MARCA = re.compile(r'\s+(?:FMS|Jornada|Temporada|Oficial|Official|Matchday|World Series|'
+MARCA = re.compile(r'\s+(?:FMS|BDM|Jornada|Temporada|Oficial|Official|Matchday|World Series|'
                    r'Red Bull|Urban Roosters|Batalla de Exhibici[oó]n|#).*$', re.I)
+# ronda pegada al final del nombre: 'XYTZAR Octavos' -> 'XYTZAR' + ronda 'Octavos'
+COLA_RONDA = re.compile(r'\s+([48](?:vos|tos)|Octavos|Cuartos|Semifinal|Final|Temporada\s+\d+|'
+                        r'Jornada\s+\d+)\s*$', re.I)
 VS = re.compile(r'\s+(?:vs\.?|VS\.?|Vs\.?)\s+', re.I)
 ROUNDS = [
     'prueba de cobardía', 'prueba de cobardia', 'main event', 'co-estelar', 'estelar',
@@ -56,19 +59,34 @@ def parse_title(title, duration=None):
     # ('Copa Camet - Final / POBLA & KRAFFIZ vs DEMENTE & SEBJAZZ')
     idx = next((i for i, p in enumerate(parts) if VS.search(p)), 0)
     head = parts[idx] if parts else title
+    cola = []          # texto que se recorta de los nombres y vuelve al evento
     # MCs desde la cabeza
     if VS.search(head):
-        mcs = [MARCA.sub('', m).split(':')[0].strip(' .,-–—:') for m in VS.split(head) if m.strip()]
-        # etiquetas sueltas al final del nombre: 'LARRIX (CUARTOS) I #FMS...' -> 'LARRIX (CUARTOS)'
-        mcs = [re.sub(r'\s+I\s*$', '', m).strip() for m in mcs]
+        mcs = []
+        for m in VS.split(head):
+            if not m.strip():
+                continue
+            m = m.split(':')[0]                  # 'KILLER CUBA: Octavos' -> 'KILLER CUBA'
+            m2 = MARCA.sub('', m)
+            if m2 != m:
+                cola.append(m[len(m2):])          # 'FMS Alicante Jornada 2'
+            m = m2.strip(' .,-–—:')
+            m = re.sub(r'\s+I\s*$', '', m)        # 'LARRIX (CUARTOS) I' -> 'LARRIX (CUARTOS)'
+            while True:                            # 'XYTZAR Octavos' -> 'XYTZAR'
+                c = COLA_RONDA.search(m)
+                if not c:
+                    break
+                cola.append(c.group(1))
+                m = m[:c.start()].strip()
+            mcs.append(m.strip(' .,-–—:'))
         mcs = [m for m in mcs if m]
         if len(mcs) >= 2:
             out['mcs'] = mcs
             out['format'] = {2: '1v1', 3: '1v1v1', 4: '4way'}.get(len(mcs), f'{len(mcs)}way')
             if any(' & ' in m or ' y ' in norm(m) for m in mcs):
                 out['format'] = '2v2'
-    # ronda / evento desde el resto
-    rest = ' '.join(parts[idx + 1:]) if len(parts) > idx + 1 else ''
+    # ronda / evento: lo que va antes del careo, lo que va despues y lo recortado
+    rest = ' '.join(parts[:idx] + parts[idx + 1:] + cola)
     nrest = norm(rest)
     # ronda: la coincidencia mas larga gana ('semifinal' antes que 'final')
     for r in sorted(ROUNDS, key=len, reverse=True):
