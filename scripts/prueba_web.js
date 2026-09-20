@@ -79,20 +79,32 @@ console.log('cifras:', (cifras?.innerHTML || '').replace(/<[^>]+>/g, ' ').replac
 console.log('lista filas:', (lista?.innerHTML.match(/class="fila"/g) || []).length);
 console.log('bloques corpus:', (graf?.innerHTML.match(/class="bloque"/g) || []).length);
 
-// probar la apertura real de una batalla (transcripcion -> tiradas)
+// probar la apertura real de una batalla (transcripcion -> barras + rimas)
 const id = corpus.find(b => b.n_words > 400).video_id;
 (async () => {
   try { await vm.runInContext(`abre(${JSON.stringify(id)})`, ctx); }
   catch (e) { errores.push('abre(): ' + e.message); }
   const lector = registro.get('#lector');
-  const tiradas = (lector.innerHTML.match(/class="tirada"/g) || []).length;
-  if (!tiradas) errores.push('no se pintaron tiradas al abrir ' + id);
-  console.log('batalla abierta:', id, '->', tiradas, 'tiradas');
+  const barras = (lector.innerHTML.match(/class="barra"/g) || []).length;
+  const rimas = (lector.innerHTML.match(/<em>rima<\/em>/g) || []).length;
+  if (!barras) errores.push('no se pintaron barras al abrir ' + id);
+  if (!rimas) errores.push('el analisis de rima no encontro ninguna familia en ' + id);
+  console.log('batalla abierta:', id, '->', barras, 'barras,', rimas, 'con rima repetida');
+
+  // el nucleo de rima debe acertar casos conocidos
+  const casos = [['corazón', 'on'], ['razón', 'on'], ['camino', 'ino'], ['cantar', 'ar'],
+                 ['correr', 'er'], ['casa', 'asa'], ['felicidad', 'ad'], ['música', 'usica'],
+                 ['camión', 'on'], ['perdón', 'on'], ['rapero', 'ero'], ['final', 'al']];
+  for (const [palabra, esperado] of casos) {
+    const got = vm.runInContext(`nucleoRima(${JSON.stringify(palabra)})`, ctx);
+    if (got !== esperado) errores.push(`rima de "${palabra}": ${got} (esperado ${esperado})`);
+  }
+  console.log('nucleoRima comprobado en', casos.length, 'palabras');
+
   const ej = JSON.parse(fs.readFileSync(path.join(BDIR, id + '.json'), 'utf8'));
-  console.log('primeras palabras:', String(ej.lines[0]).slice(0, 60));
   console.log('tipo de linea:', typeof ej.lines[0], '| timestamps:', ej.lines[0].start !== undefined);
   if (lector.innerHTML.includes('undefined')) errores.push('"undefined" en la transcripcion');
 
   if (errores.length) { console.error('\nFALLOS:\n- ' + errores.join('\n- ')); process.exit(1); }
-  console.log('\nOK: la app arranca, pinta el corpus y abre una batalla sin errores');
+  console.log('\nOK: la app arranca, pinta el corpus, abre una batalla y mide rimas');
 })();

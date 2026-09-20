@@ -10,52 +10,47 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="shell">
 
-<header class="cabecera">
-  <div class="marca">
+  <header class="barra-sup">
     <h1>Acta de barras</h1>
-    <p>Transcripciones de batallas de gallos en español, agrupadas en tiradas legibles.</p>
-  </div>
-  <dl class="cifras" id="cifras"></dl>
-</header>
-
-<nav class="pestanas" role="tablist">
-  <button role="tab" id="tab-lector" aria-controls="panel-lector" aria-selected="true">Lector</button>
-  <button role="tab" id="tab-corpus" aria-controls="panel-corpus" aria-selected="false">El corpus</button>
-  <span class="aviso" id="aviso" hidden></span>
-</nav>
-
-<!-- ------------------------------------------------ lector -->
-<section class="panel" id="panel-lector" role="tabpanel" aria-labelledby="tab-lector">
-  <div class="columna-izq">
-    <div class="filtros">
-      <label for="q" class="etiqueta">Buscar por MC, evento o ronda</label>
-      <input id="q" type="search" placeholder="Aczino, FMS México, octavos…" autocomplete="off">
-      <label class="interruptor" id="lbl-full">
-        <input type="checkbox" id="fulltext">
-        <span>Buscar también dentro de las transcripciones</span>
+    <div class="buscar">
+      <input id="q" type="search" placeholder="Buscar MC, evento, ronda…" autocomplete="off" aria-label="Buscar">
+      <label class="interruptor" id="lbl-full" title="Busca en todas las transcripciones (tarda un poco)">
+        <input type="checkbox" id="fulltext"> <span>en el texto</span>
       </label>
-      <p class="progreso" id="progreso" hidden></p>
+      <span class="progreso" id="progreso" hidden></span>
     </div>
-    <ol class="lista" id="lista"></ol>
-    <button class="mas" id="mas" hidden>Mostrar más batallas</button>
-  </div>
+    <nav class="pestanas" role="tablist">
+      <button role="tab" id="tab-lector" aria-controls="panel-lector" aria-selected="true">Batalla</button>
+      <button role="tab" id="tab-corpus" aria-controls="panel-corpus" aria-selected="false">Corpus</button>
+    </nav>
+  </header>
 
-  <article class="lector" id="lector">
-    <p class="vacio" id="vacio">Elige una batalla de la izquierda.</p>
-  </article>
-</section>
+  <!-- ------------------------------------------------ batalla -->
+  <section class="panel" id="panel-lector" role="tabpanel" aria-labelledby="tab-lector">
 
-<!-- ------------------------------------------------ corpus -->
-<section class="panel" id="panel-corpus" role="tabpanel" aria-labelledby="tab-corpus" hidden>
-  <div class="rejilla" id="graficas"></div>
-</section>
+    <aside class="pane lista-pane" id="lista-pane">
+      <p class="recuento" id="recuento"></p>
+      <ol class="lista" id="lista"></ol>
+      <button class="mas" id="mas" hidden></button>
+    </aside>
 
-<footer class="pie">
-  <p id="pie-txt"></p>
-  <p>Los textos vienen de los subtítulos automáticos de YouTube y pertenecen a sus autores.
-     <span id="pie-aviso"></span></p>
-</footer>
+    <main class="pane lector-pane" id="lector">
+      <p class="vacio" id="vacio">Elige una batalla en la lista.</p>
+    </main>
+
+  </section>
+
+  <!-- ------------------------------------------------ corpus -->
+  <section class="panel" id="panel-corpus" role="tabpanel" aria-labelledby="tab-corpus" hidden>
+    <div class="pane corpus-pane">
+      <dl class="cifras" id="cifras"></dl>
+      <div class="rejilla" id="graficas"></div>
+    </div>
+  </section>
+
+</div>
 
 <script src="data/index.js"></script>
 <script src="app.js"></script>
