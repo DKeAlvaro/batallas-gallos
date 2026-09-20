@@ -8,7 +8,8 @@ rankings, entrenar un modelo) sin volver a tocar el vídeo.
 
 ## Qué hay aquí
 
-- `docs/index.html` — el visor. Un solo fichero con el CSS y el JS dentro: una lista de
+`docs/index.html` — la portada: qué es el corpus, cómo se hizo y para qué sirve.
+- `docs/visor.html` — el visor. Un solo fichero con el CSS y el JS dentro: una lista de
   batallas y, al pulsar una, su transcripción a pantalla completa. Funciona abierto
   (`file://`) para navegar el corpus; para leer las transcripciones hay que servirlo
   (por ejemplo `python3 -m http.server -d docs`).
