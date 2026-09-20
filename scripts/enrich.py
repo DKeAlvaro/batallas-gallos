@@ -14,15 +14,20 @@ SEP = re.compile(r'\s*(?:[–—─]|\.\s|\s\|\s|\s/\s|\s-\s)\s*')
 MARCA = re.compile(r'\s+(?:FMS|BDM|Jornada|Temporada|Oficial|Official|Matchday|World Series|'
                    r'Red Bull|Urban Roosters|Batalla de Exhibici[oó]n|#).*$', re.I)
 # ronda pegada al final del nombre: 'XYTZAR Octavos' -> 'XYTZAR' + ronda 'Octavos'
-COLA_RONDA = re.compile(r'\s+([48](?:vos|tos)|Octavos|Cuartos|Semifinal|Final|Temporada\s+\d+|'
+COLA_RONDA = re.compile(r'\s+([48](?:vos|tos)(?:\s+de(?:\s+[Ff]inal)?)?|Octavos(?:\s+de\s+[Ff]inal)?|'
+                        r'Cuartos(?:\s+de\s+[Ff]inal)?|Semifinal|Final|Temporada\s+\d+|'
                         r'Jornada\s+\d+)\s*$', re.I)
+# eventos que no dicen nada por si solos
+EVENTO_BASURA = re.compile(r'^(temporada|oficial|official|final|jornada|batalla|vs\.?|de|y|el|la)\b[\s\d/]*$', re.I)
 VS = re.compile(r'\s+(?:vs\.?|VS\.?|Vs\.?)\s+', re.I)
 ROUNDS = [
     'prueba de cobardía', 'prueba de cobardia', 'main event', 'co-estelar', 'estelar',
     'cartelera principal', 'preliminares', 'preliminar', 'bonus battle',
-    'triple amenaza', 'triple threat', 'final', 'semifinal', 'cuartos',
-    'octavos', 'primera ronda', 'segunda ronda', 'repesca', 'tercer',
-    '3er y 4to puesto', 'replica', 'filtro', 'ronda',
+    'triple amenaza', 'triple threat',
+    'octavos de final', 'cuartos de final', '8vos de final', '4tos de final',
+    '8vos', '4tos', '8avos', '4tos de final', 'semifinal', 'cuartos', 'octavos',
+    'primera ronda', 'segunda ronda', 'repesca', 'tercer', '3er y 4to puesto',
+    'replica', 'filtro', 'final', 'ronda',
 ]
 
 def norm(s):
@@ -36,7 +41,7 @@ def parse_title(title, duration=None):
     out = {'raw_title': title, 'mcs': None, 'round': None, 'event': None, 'year': None,
            'format': None, 'noise': False}
     # quita el separador ' I ' de las ligas, para que la cabeza sea solo 'A vs B'
-    if re.search(r'\bFMS\b|World Series|Jornada|Temporada', title, re.I):
+    if re.search(r'\bFMS|World Series|Jornada|Temporada|Urban Roosters|Red Bull|BDM', title, re.I):
         title = SEP_I.sub(' \u2013 ', title).strip()
     # ruido evidente
     if re.search(r'\b(cypher|top \d|mejores|reaccion|resumen|entrevista|presentaci|minutos de|kids|anuncio|tráiler|trailer)\b', norm(title)):
@@ -99,9 +104,11 @@ def parse_title(title, duration=None):
         if out['round']:
             ev = re.sub(r'(?i)' + re.escape(out['round']), '', ev, count=1)
         ev = re.sub(r'\b(20\d{2})(?:/\d{2})?\b', '', ev)
-        ev = re.sub(r'[.#|]|^\s*[-–—:]\s*|\s*[-–—:]\s*$', '', ev).strip(' .,-–—:')
+        ev = re.sub(r'[.#|]|^\s*[-–—:]\s*|\s*[-–—:]\s*$', '', ev).strip(' .,-–—:/')
         ev = re.sub(r'\s{2,}', ' ', ev)
-        if ev and len(ev) > 2:
+        # restos de separadores y palabras sueltas sin significado
+        ev = re.sub(r'\s*/\s*$|\.\s*$', '', ev).strip(' .,-–—:/')
+        if not EVENTO_BASURA.match(ev) and len(ev) > 2:
             out['event'] = ev
     return out
 
