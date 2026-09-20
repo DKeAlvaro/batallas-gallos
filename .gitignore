@@ -1,0 +1,6 @@
+subs/
+dataset/
+logs/
+meta/
+__pycache__/
+*.pyc

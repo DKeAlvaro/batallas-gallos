@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""Enriquece metadata a partir del titulo, segun multiples formatos de canal.
+Formatos observados:
+  Red Bull/Urban Roosters: "MC1 vs MC2 – Ronda: Evento, Pais año"
+  BDM:                     "MC1 vs MC2. Ronda. Evento. año. CL"
+  Batalla de Campeones:    "MC1 VS MC2"
+  Supremacia MC:           "A vs B vs C vs D - Prueba de Cobardía"
+  2v2:                     "A & B vs C & D ─ ESTELAR ─ FU II (Logroño)"
+"""
+import json, re, sys, os, unicodedata
+
+SEP = re.compile(r'\s*(?:[–—─]|\.\s|\s\|\s|\s-\s)\s*')
+VS = re.compile(r'\s+(?:vs\.?|VS\.?|Vs\.?)\s+', re.I)
+ROUNDS = [
+    'prueba de cobardía', 'prueba de cobardia', 'main event', 'co-estelar', 'estelar',
+    'cartelera principal', 'preliminares', 'preliminar', 'bonus battle',
+    'triple amenaza', 'triple threat', 'final', 'semifinal', 'cuartos',
+    'octavos', 'primera ronda', 'segunda ronda', 'repesca', 'tercer',
+    '3er y 4to puesto', 'replica', 'filtro', 'ronda',
+]
+
+def norm(s):
+    return unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower().strip()
+
+def parse_title(title, duration=None):
+    out = {'raw_title': title, 'mcs': None, 'round': None, 'event': None, 'year': None,
+           'format': None, 'noise': False}
+    # ruido evidente
+    if re.search(r'\b(cypher|top \d|mejores|reaccion|resumen|entrevista|presentaci|minutos de|kids|anuncio|tráiler|trailer)\b', norm(title)):
+        out['noise'] = True
+    # año
+    ym = re.search(r'\b(20\d{2})\b', title)
+    if ym:
+        out['year'] = int(ym.group(1))
+    # partir por separador de contexto
+    parts = [p.strip() for p in SEP.split(title) if p.strip()]
+    head = parts[0] if parts else title
+    # MCs desde la cabeza
+    if VS.search(head):
+        mcs = [m.strip() for m in VS.split(head) if m.strip()]
+        if len(mcs) >= 2:
+            out['mcs'] = mcs
+            out['format'] = {2: '1v1', 3: '1v1v1', 4: '4way'}.get(len(mcs), f'{len(mcs)}way')
+            if any(' & ' in m or ' y ' in norm(m) for m in mcs):
+                out['format'] = '2v2'
+    # ronda / evento desde el resto
+    rest = ' '.join(parts[1:]) if len(parts) > 1 else ''
+    nrest = norm(rest)
+    # ronda: la coincidencia mas larga gana ('semifinal' antes que 'final')
+    for r in sorted(ROUNDS, key=len, reverse=True):
+        if r in nrest:
+            out['round'] = r
+            break
+    if rest:
+        # evento: quitar la ronda del texto restante
+        ev = rest
+        if out['round']:
+            ev = re.sub(r'(?i)' + re.escape(out['round']), '', ev, count=1)
+        ev = re.sub(r'\b(20\d{2})(?:/\d{2})?\b', '', ev)
+        ev = re.sub(r'[.#|]|^\s*[-–—:]\s*|\s*[-–—:]\s*$', '', ev).strip(' .,-–—:')
+        ev = re.sub(r'\s{2,}', ' ', ev)
+        if ev and len(ev) > 2:
+            out['event'] = ev
+    return out
+
+def main():
+    whitelist = set(x for x in open('canales/todos_ids.txt').read().split() if x)
+    idx = {}
+    for f in os.listdir('canales'):
+        if not f.endswith('.txt') or f == 'todos_ids.txt':
+            continue
+        for line in open(os.path.join('canales', f)):
+            p = line.rstrip('\n').split('|')
+            if len(p) >= 2 and p[0] in whitelist:
+                d = int(p[2]) if len(p) > 2 and p[2].isdigit() else None
+                idx.setdefault(p[0], {'title': p[1], 'duration_s': d, 'channel_file': f})
+    stats = {'total': 0, 'mcs': 0, 'round': 0, 'event': 0, 'year': 0, 'noise': 0, 'fmt': {}}
+    rows = []
+    for vid, m in idx.items():
+        e = parse_title(m['title'], m['duration_s'])
+        e['video_id'] = vid
+        e['url'] = f'https://youtu.be/{vid}'
+        e['channel_file'] = m['channel_file']
+        e['duration_s'] = m['duration_s']
+        rows.append(e)
+        stats['total'] += 1
+        stats['mcs'] += 1 if e['mcs'] else 0
+        stats['round'] += 1 if e['round'] else 0
+        stats['event'] += 1 if e['event'] else 0
+        stats['year'] += 1 if e['year'] else 0
+        stats['noise'] += 1 if e['noise'] else 0
+        if e['format']:
+            stats['fmt'][e['format']] = stats['fmt'].get(e['format'], 0) + 1
+    os.makedirs('meta', exist_ok=True)
+    with open('meta/index.jsonl', 'w', encoding='utf-8') as fh:
+        for r in rows:
+            fh.write(json.dumps(r, ensure_ascii=False) + '\n')
+    print(json.dumps(stats, ensure_ascii=False, indent=1))
+
+if __name__ == '__main__':
+    main()
