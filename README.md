@@ -1,7 +1,7 @@
 # Acta de barras — corpus de batallas de gallos
 
 Transcripciones de batallas de gallos en español, sacadas de los subtítulos de YouTube,
-desduplicadas a una línea por barra y con el minuto exacto de cada una.
+desduplicadas y sin marcas de tiempo.
 
 La idea es tener el material en un formato que se pueda analizar (rimas, métrica,
 rankings, entrenar un modelo) sin volver a tocar el vídeo.
