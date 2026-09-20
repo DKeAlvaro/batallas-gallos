@@ -9,7 +9,10 @@ Formatos observados:
 """
 import json, re, sys, os, unicodedata
 
-SEP = re.compile(r'\s*(?:[–—─]|\.\s|\s\|\s|\s-\s)\s*')
+SEP = re.compile(r'\s*(?:[–—─]|\.\s|\s\|\s|\s/\s|\s-\s)\s*')
+# marcas de liga que se cuelan al final del nombre del MC: 'ZASKO FMS BILBAO Jornada 5'
+MARCA = re.compile(r'\s+(?:FMS|Jornada|Temporada|Oficial|Official|Matchday|World Series|'
+                   r'Red Bull|Urban Roosters|Batalla de Exhibici[oó]n|#).*$', re.I)
 VS = re.compile(r'\s+(?:vs\.?|VS\.?|Vs\.?)\s+', re.I)
 ROUNDS = [
     'prueba de cobardía', 'prueba de cobardia', 'main event', 'co-estelar', 'estelar',
@@ -39,19 +42,33 @@ def parse_title(title, duration=None):
     ym = re.search(r'\b(20\d{2})\b', title)
     if ym:
         out['year'] = int(ym.group(1))
-    # partir por separador de contexto
+    # partir por separador de contexto. Si un trozo acaba en 'vs', el corte partio
+    # un 'VS.' por la mitad: se vuelve a unir con el trozo siguiente.
     parts = [p.strip() for p in SEP.split(title) if p.strip()]
-    head = parts[0] if parts else title
+    unidas = []
+    for p in parts:
+        if unidas and (re.search(r'\bvs\.?$', unidas[-1], re.I) or re.match(r'(?i)^vs\.?\s', p)):
+            unidas[-1] = unidas[-1] + ' ' + p
+        else:
+            unidas.append(p)
+    parts = unidas
+    # la cabeza es el primer trozo con 'vs': hay titulos que empiezan por el torneo
+    # ('Copa Camet - Final / POBLA & KRAFFIZ vs DEMENTE & SEBJAZZ')
+    idx = next((i for i, p in enumerate(parts) if VS.search(p)), 0)
+    head = parts[idx] if parts else title
     # MCs desde la cabeza
     if VS.search(head):
-        mcs = [m.strip() for m in VS.split(head) if m.strip()]
+        mcs = [MARCA.sub('', m).split(':')[0].strip(' .,-–—:') for m in VS.split(head) if m.strip()]
+        # etiquetas sueltas al final del nombre: 'LARRIX (CUARTOS) I #FMS...' -> 'LARRIX (CUARTOS)'
+        mcs = [re.sub(r'\s+I\s*$', '', m).strip() for m in mcs]
+        mcs = [m for m in mcs if m]
         if len(mcs) >= 2:
             out['mcs'] = mcs
             out['format'] = {2: '1v1', 3: '1v1v1', 4: '4way'}.get(len(mcs), f'{len(mcs)}way')
             if any(' & ' in m or ' y ' in norm(m) for m in mcs):
                 out['format'] = '2v2'
     # ronda / evento desde el resto
-    rest = ' '.join(parts[1:]) if len(parts) > 1 else ''
+    rest = ' '.join(parts[idx + 1:]) if len(parts) > idx + 1 else ''
     nrest = norm(rest)
     # ronda: la coincidencia mas larga gana ('semifinal' antes que 'final')
     for r in sorted(ROUNDS, key=len, reverse=True):
