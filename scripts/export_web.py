@@ -12,6 +12,9 @@ BDIR = os.path.join(OUT, 'battles')
 
 def main():
     os.makedirs(BDIR, exist_ok=True)
+    # limpiar para no dejar transcripciones de batallas ya descartadas
+    for viejo in os.listdir(BDIR):
+        os.remove(os.path.join(BDIR, viejo))
     src = os.path.join(ROOT, 'dataset.jsonl')
     index, n = [], 0
     for line in open(src, encoding='utf-8'):

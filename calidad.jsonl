@@ -46,6 +46,7 @@
 {"video_id": "09pmrU5FBmk", "clase": "util", "dur_s": 366, "palabras": 852, "lineas": 135, "wpm": 139.8, "cobertura": 0.88, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 6.31}
 {"video_id": "0DUM_cM9X6Y", "clase": "util", "dur_s": 622, "palabras": 1336, "lineas": 221, "wpm": 128.9, "cobertura": 0.926, "bucles": 0.0, "marcas": 23, "palabras_por_linea": 6.05}
 {"video_id": "0DkUsn-ct2Y", "clase": "util", "dur_s": 324, "palabras": 802, "lineas": 115, "wpm": 148.5, "cobertura": 0.919, "bucles": 0.0, "marcas": 21, "palabras_por_linea": 6.97}
+{"video_id": "0FhaigJiCqQ", "clase": "rota", "dur_s": 786, "palabras": 42, "lineas": 52, "wpm": 3.2, "cobertura": 0.439, "bucles": 0.0, "marcas": 28, "palabras_por_linea": 0.81}
 {"video_id": "0Gp7fo0sJO0", "clase": "util", "dur_s": 337, "palabras": 794, "lineas": 115, "wpm": 141.5, "cobertura": 0.928, "bucles": 0.0, "marcas": 4, "palabras_por_linea": 6.9}
 {"video_id": "0JAbs_gGg9o", "clase": "util", "dur_s": 426, "palabras": 1034, "lineas": 150, "wpm": 145.7, "cobertura": 0.943, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 6.89}
 {"video_id": "0MSrGnmZJlQ", "clase": "util", "dur_s": 416, "palabras": 1205, "lineas": 160, "wpm": 174.0, "cobertura": 0.989, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 7.53}
@@ -84,6 +85,7 @@
 {"video_id": "1Q4QXKDSq34", "clase": "util", "dur_s": 632, "palabras": 1744, "lineas": 248, "wpm": 165.4, "cobertura": 0.894, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 7.03}
 {"video_id": "1QN7y8XlVxE", "clase": "util", "dur_s": 357, "palabras": 825, "lineas": 129, "wpm": 138.5, "cobertura": 0.967, "bucles": 0.0, "marcas": 9, "palabras_por_linea": 6.4}
 {"video_id": "1UVQ7M9s4l0", "clase": "util", "dur_s": 317, "palabras": 704, "lineas": 107, "wpm": 133.2, "cobertura": 0.831, "bucles": 0.0, "marcas": 12, "palabras_por_linea": 6.58}
+{"video_id": "1Uk3E72i--s", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "1V06x0Bo1yQ", "clase": "rota", "dur_s": 1094, "palabras": 292, "lineas": 134, "wpm": 16.0, "cobertura": 0.453, "bucles": 0.0, "marcas": 27, "palabras_por_linea": 2.18}
 {"video_id": "1Zuc6pkhG7A", "clase": "util", "dur_s": 412, "palabras": 801, "lineas": 133, "wpm": 116.6, "cobertura": 0.862, "bucles": 0.0, "marcas": 12, "palabras_por_linea": 6.02}
 {"video_id": "1auzqZq0fHE", "clase": "util", "dur_s": 1388, "palabras": 3631, "lineas": 528, "wpm": 157.0, "cobertura": 0.927, "bucles": 0.0, "marcas": 40, "palabras_por_linea": 6.88}
@@ -118,6 +120,7 @@
 {"video_id": "2OjzUACoqz4", "clase": "util", "dur_s": 655, "palabras": 991, "lineas": 193, "wpm": 90.7, "cobertura": 0.765, "bucles": 0.0, "marcas": 36, "palabras_por_linea": 5.13}
 {"video_id": "2S4vL7X8_J4", "clase": "util", "dur_s": 305, "palabras": 773, "lineas": 114, "wpm": 151.9, "cobertura": 0.961, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 6.78}
 {"video_id": "2VPfJ0T2QLU", "clase": "util", "dur_s": 391, "palabras": 998, "lineas": 138, "wpm": 153.1, "cobertura": 0.951, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 7.23}
+{"video_id": "2XtWXiIJ42g", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "2YrXyeZJG44", "clase": "util", "dur_s": 797, "palabras": 1856, "lineas": 282, "wpm": 139.7, "cobertura": 0.922, "bucles": 0.0027, "marcas": 23, "palabras_por_linea": 6.58}
 {"video_id": "2_fQlsPkdqE", "clase": "util", "dur_s": 307, "palabras": 751, "lineas": 105, "wpm": 147.0, "cobertura": 0.937, "bucles": 0.0027, "marcas": 0, "palabras_por_linea": 7.15}
 {"video_id": "2edFVocaM9Q", "clase": "rota", "dur_s": 417, "palabras": 624, "lineas": 98, "wpm": 89.8, "cobertura": 0.655, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 6.37}
@@ -165,6 +168,7 @@
 {"video_id": "4Fq7OMk1-KE", "clase": "util", "dur_s": 1923, "palabras": 4609, "lineas": 671, "wpm": 143.8, "cobertura": 0.899, "bucles": 0.0, "marcas": 39, "palabras_por_linea": 6.87}
 {"video_id": "4JqderBmUps", "clase": "util", "dur_s": 960, "palabras": 1995, "lineas": 328, "wpm": 124.6, "cobertura": 0.916, "bucles": 0.0, "marcas": 22, "palabras_por_linea": 6.08}
 {"video_id": "4KLv4KIJADc", "clase": "util", "dur_s": 355, "palabras": 847, "lineas": 130, "wpm": 143.2, "cobertura": 0.93, "bucles": 0.0, "marcas": 4, "palabras_por_linea": 6.52}
+{"video_id": "4L0-ulwpu8s", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "4MUhiCjKVRY", "clase": "rota", "dur_s": 256, "palabras": 144, "lineas": 43, "wpm": 33.8, "cobertura": 0.606, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 3.35}
 {"video_id": "4UHTgmoOpFg", "clase": "util", "dur_s": 361, "palabras": 866, "lineas": 130, "wpm": 143.9, "cobertura": 0.962, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 6.66}
 {"video_id": "4VP4DPwBec4", "clase": "util", "dur_s": 2224, "palabras": 5108, "lineas": 799, "wpm": 137.8, "cobertura": 0.887, "bucles": 0.0, "marcas": 35, "palabras_por_linea": 6.39}
@@ -261,6 +265,7 @@
 {"video_id": "7wQ5s04syc0", "clase": "util", "dur_s": 748, "palabras": 1828, "lineas": 138, "wpm": 146.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 24, "palabras_por_linea": 13.25}
 {"video_id": "7zPzhXsKxNM", "clase": "util", "dur_s": 653, "palabras": 1860, "lineas": 143, "wpm": 170.8, "cobertura": 1.0, "bucles": 0.0043, "marcas": 7, "palabras_por_linea": 13.01}
 {"video_id": "8-Qn_z36fQc", "clase": "util", "dur_s": 581, "palabras": 1644, "lineas": 120, "wpm": 169.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 5, "palabras_por_linea": 13.7}
+{"video_id": "81RUqvFRXDQ", "clase": "rota", "dur_s": 322, "palabras": 71, "lineas": 43, "wpm": 13.2, "cobertura": 0.462, "bucles": 0.0, "marcas": 12, "palabras_por_linea": 1.65}
 {"video_id": "825lOD6E2kk", "clase": "util", "dur_s": 366, "palabras": 844, "lineas": 66, "wpm": 138.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 12.79}
 {"video_id": "82UBXNNi-gI", "clase": "util", "dur_s": 294, "palabras": 612, "lineas": 94, "wpm": 124.9, "cobertura": 0.912, "bucles": 0.0, "marcas": 14, "palabras_por_linea": 6.51}
 {"video_id": "86J36BWiQxQ", "clase": "util", "dur_s": 1565, "palabras": 3022, "lineas": 266, "wpm": 115.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 31, "palabras_por_linea": 11.36}
@@ -326,6 +331,7 @@
 {"video_id": "9qZTMDgEzpo", "clase": "util", "dur_s": 305, "palabras": 704, "lineas": 58, "wpm": 138.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 12, "palabras_por_linea": 12.14}
 {"video_id": "9rOpFqNSrDQ", "clase": "util", "dur_s": 359, "palabras": 730, "lineas": 67, "wpm": 122.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 10.9}
 {"video_id": "9ta71DiSvHM", "clase": "util", "dur_s": 2158, "palabras": 4994, "lineas": 411, "wpm": 138.9, "cobertura": 1.0, "bucles": 0.001, "marcas": 51, "palabras_por_linea": 12.15}
+{"video_id": "9trmZseK6JY", "clase": "util", "dur_s": 415, "palabras": 1033, "lineas": 135, "wpm": 149.4, "cobertura": 0.963, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 7.65}
 {"video_id": "9ufx3_sq8D8", "clase": "util", "dur_s": 1035, "palabras": 2620, "lineas": 200, "wpm": 151.8, "cobertura": 1.0, "bucles": 0.0008, "marcas": 23, "palabras_por_linea": 13.1}
 {"video_id": "A2IoBifR61k", "clase": "util", "dur_s": 348, "palabras": 905, "lineas": 66, "wpm": 155.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 5, "palabras_por_linea": 13.71}
 {"video_id": "A4coVA9lnD0", "clase": "util", "dur_s": 587, "palabras": 1731, "lineas": 122, "wpm": 176.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 12, "palabras_por_linea": 14.19}
@@ -401,6 +407,7 @@
 {"video_id": "CVYx33ZmGo4", "clase": "util", "dur_s": 1685, "palabras": 3692, "lineas": 317, "wpm": 131.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 44, "palabras_por_linea": 11.65}
 {"video_id": "CaKhxg2-5DM", "clase": "util", "dur_s": 928, "palabras": 1872, "lineas": 146, "wpm": 121.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 9, "palabras_por_linea": 12.82}
 {"video_id": "CiGnZkwoclE", "clase": "util", "dur_s": 1385, "palabras": 3529, "lineas": 263, "wpm": 152.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 60, "palabras_por_linea": 13.42}
+{"video_id": "CigIEnBKZYU", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "CkPuNQwApuk", "clase": "util", "dur_s": 379, "palabras": 825, "lineas": 77, "wpm": 130.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 26, "palabras_por_linea": 10.71}
 {"video_id": "Coc4m7yqAxY", "clase": "util", "dur_s": 697, "palabras": 1717, "lineas": 132, "wpm": 147.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 13.01}
 {"video_id": "CpngvxZwPdQ", "clase": "util", "dur_s": 1489, "palabras": 3508, "lineas": 278, "wpm": 141.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 43, "palabras_por_linea": 12.62}
@@ -938,6 +945,7 @@
 {"video_id": "U8AN8qNhVsY", "clase": "util", "dur_s": 431, "palabras": 1038, "lineas": 81, "wpm": 144.4, "cobertura": 1.0, "bucles": 0.001, "marcas": 26, "palabras_por_linea": 12.81}
 {"video_id": "UE7DQotp12k", "clase": "util", "dur_s": 423, "palabras": 1086, "lineas": 82, "wpm": 154.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 13.24}
 {"video_id": "UFPxXYlFtFw", "clase": "util", "dur_s": 1059, "palabras": 2173, "lineas": 187, "wpm": 123.1, "cobertura": 1.0, "bucles": 0.0009, "marcas": 53, "palabras_por_linea": 11.62}
+{"video_id": "UG4pDxiPUOY", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "UGLuoE4j9-g", "clase": "util", "dur_s": 1416, "palabras": 3460, "lineas": 268, "wpm": 146.6, "cobertura": 1.0, "bucles": 0.0012, "marcas": 44, "palabras_por_linea": 12.91}
 {"video_id": "UHqkPzbXtbc", "clase": "util", "dur_s": 1448, "palabras": 2229, "lineas": 248, "wpm": 92.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 56, "palabras_por_linea": 8.99}
 {"video_id": "UIX2at3bB78", "clase": "util", "dur_s": 1515, "palabras": 3405, "lineas": 286, "wpm": 134.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 46, "palabras_por_linea": 11.91}
@@ -966,6 +974,7 @@
 {"video_id": "UlpTEYmwi5s", "clase": "util", "dur_s": 640, "palabras": 1172, "lineas": 109, "wpm": 109.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 19, "palabras_por_linea": 10.75}
 {"video_id": "UluWV9SdzEo", "clase": "util", "dur_s": 596, "palabras": 1247, "lineas": 108, "wpm": 125.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 11.55}
 {"video_id": "UmhrNNAgTrI", "clase": "util", "dur_s": 1133, "palabras": 2200, "lineas": 205, "wpm": 116.5, "cobertura": 1.0, "bucles": 0.0005, "marcas": 62, "palabras_por_linea": 10.73}
+{"video_id": "UsEAI4aR9eA", "clase": "rota", "dur_s": 694, "palabras": 20, "lineas": 32, "wpm": 1.7, "cobertura": 0.337, "bucles": 0.0, "marcas": 23, "palabras_por_linea": 0.62}
 {"video_id": "Uv8JVw0Wwmw", "clase": "util", "dur_s": 374, "palabras": 863, "lineas": 71, "wpm": 138.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 12.15}
 {"video_id": "V3PdUSYpS6E", "clase": "util", "dur_s": 372, "palabras": 733, "lineas": 63, "wpm": 118.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 11.63}
 {"video_id": "V46tkDJJsk8", "clase": "util", "dur_s": 801, "palabras": 2081, "lineas": 157, "wpm": 155.8, "cobertura": 1.0, "bucles": 0.0005, "marcas": 24, "palabras_por_linea": 13.25}
@@ -1043,6 +1052,7 @@
 {"video_id": "XOk0UAOoQTc", "clase": "util", "dur_s": 329, "palabras": 888, "lineas": 63, "wpm": 162.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 14.1}
 {"video_id": "XQ4EueUKLNs", "clase": "util", "dur_s": 381, "palabras": 783, "lineas": 65, "wpm": 123.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 12.05}
 {"video_id": "XUtXyGdSias", "clase": "util", "dur_s": 1062, "palabras": 2462, "lineas": 216, "wpm": 139.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 123, "palabras_por_linea": 11.4}
+{"video_id": "XWfkpMfJxRk", "clase": "rota", "dur_s": 549, "palabras": 264, "lineas": 88, "wpm": 28.9, "cobertura": 0.537, "bucles": 0.0, "marcas": 18, "palabras_por_linea": 3.0}
 {"video_id": "XY5unax1edE", "clase": "util", "dur_s": 407, "palabras": 910, "lineas": 73, "wpm": 134.2, "cobertura": 1.0, "bucles": 0.0033, "marcas": 18, "palabras_por_linea": 12.47}
 {"video_id": "XZJOmPzZzaU", "clase": "util", "dur_s": 876, "palabras": 2082, "lineas": 160, "wpm": 142.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 13.01}
 {"video_id": "X_lX9_yip0M", "clase": "util", "dur_s": 352, "palabras": 653, "lineas": 58, "wpm": 111.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 11.26}
@@ -1072,6 +1082,7 @@
 {"video_id": "YCsbrNT9zEc", "clase": "rota", "dur_s": 903, "palabras": 1215, "lineas": 129, "wpm": 80.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 42, "palabras_por_linea": 9.42}
 {"video_id": "YDk0oYdXwyU", "clase": "util", "dur_s": 448, "palabras": 895, "lineas": 77, "wpm": 119.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 11.62}
 {"video_id": "YLTjdfDEPTQ", "clase": "util", "dur_s": 689, "palabras": 1796, "lineas": 132, "wpm": 156.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 13.61}
+{"video_id": "YMfPCm5KMZM", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "YNa3lPZJriM", "clase": "util", "dur_s": 804, "palabras": 1910, "lineas": 153, "wpm": 142.5, "cobertura": 1.0, "bucles": 0.0005, "marcas": 17, "palabras_por_linea": 12.48}
 {"video_id": "YPEET3oWo4E", "clase": "util", "dur_s": 659, "palabras": 1229, "lineas": 115, "wpm": 112.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 23, "palabras_por_linea": 10.69}
 {"video_id": "YTMqSbOwHiI", "clase": "rota", "dur_s": 456, "palabras": 103, "lineas": 28, "wpm": 13.5, "cobertura": 0.42, "bucles": 0.0, "marcas": 15, "palabras_por_linea": 3.68}
@@ -1084,6 +1095,7 @@
 {"video_id": "Yizp_4lXFwg", "clase": "util", "dur_s": 1015, "palabras": 2814, "lineas": 208, "wpm": 166.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 25, "palabras_por_linea": 13.53}
 {"video_id": "Yj9xMGovuU8", "clase": "util", "dur_s": 891, "palabras": 2441, "lineas": 180, "wpm": 164.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 19, "palabras_por_linea": 13.56}
 {"video_id": "Ylc4xJ_vRpQ", "clase": "util", "dur_s": 441, "palabras": 804, "lineas": 70, "wpm": 109.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 6, "palabras_por_linea": 11.49}
+{"video_id": "YlyuefLT-K0", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "YqwkNTpOX2k", "clase": "util", "dur_s": 332, "palabras": 790, "lineas": 61, "wpm": 142.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 12.95}
 {"video_id": "YrSMfAdh0zY", "clase": "util", "dur_s": 1300, "palabras": 3737, "lineas": 268, "wpm": 172.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 53, "palabras_por_linea": 13.94}
 {"video_id": "YrnLW_PkUSs", "clase": "util", "dur_s": 424, "palabras": 963, "lineas": 73, "wpm": 136.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 13.19}
@@ -1185,6 +1197,7 @@
 {"video_id": "bBQeKZm506Q", "clase": "util", "dur_s": 460, "palabras": 1039, "lineas": 78, "wpm": 135.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 1, "palabras_por_linea": 13.32}
 {"video_id": "bBRGjYLOyW8", "clase": "util", "dur_s": 1724, "palabras": 3928, "lineas": 325, "wpm": 136.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 53, "palabras_por_linea": 12.09}
 {"video_id": "bC9OqYA2l9Q", "clase": "util", "dur_s": 556, "palabras": 1376, "lineas": 106, "wpm": 148.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 12.98}
+{"video_id": "bIwUV1f0lng", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "bJjWl0UQTOo", "clase": "rota", "dur_s": 310, "palabras": 457, "lineas": 48, "wpm": 88.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 9.52}
 {"video_id": "bLLfOxL9kho", "clase": "util", "dur_s": 312, "palabras": 788, "lineas": 58, "wpm": 151.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 13.59}
 {"video_id": "bOblkBtm7fY", "clase": "util", "dur_s": 689, "palabras": 1270, "lineas": 114, "wpm": 110.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 11.14}
@@ -1210,6 +1223,7 @@
 {"video_id": "c6aVhvSUr2U", "clase": "util", "dur_s": 780, "palabras": 1794, "lineas": 141, "wpm": 138.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 22, "palabras_por_linea": 12.72}
 {"video_id": "c7QPrqo0ras", "clase": "util", "dur_s": 1434, "palabras": 2514, "lineas": 251, "wpm": 105.2, "cobertura": 1.0, "bucles": 0.0036, "marcas": 117, "palabras_por_linea": 10.02}
 {"video_id": "c97twoPouTo", "clase": "util", "dur_s": 1904, "palabras": 3420, "lineas": 335, "wpm": 107.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 64, "palabras_por_linea": 10.21}
+{"video_id": "c9UxPnSxB-M", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "cArHgUKp1J8", "clase": "rota", "dur_s": 862, "palabras": 964, "lineas": 116, "wpm": 67.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 41, "palabras_por_linea": 8.31}
 {"video_id": "cE6LBhYyNRI", "clase": "util", "dur_s": 377, "palabras": 835, "lineas": 67, "wpm": 132.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 12.46}
 {"video_id": "cFZQNGIUFCc", "clase": "util", "dur_s": 324, "palabras": 937, "lineas": 70, "wpm": 173.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 13.39}
@@ -1227,6 +1241,7 @@
 {"video_id": "cZp3xDgrHcc", "clase": "util", "dur_s": 374, "palabras": 751, "lineas": 61, "wpm": 120.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 14, "palabras_por_linea": 12.31}
 {"video_id": "cZvb7fQlnH4", "clase": "util", "dur_s": 299, "palabras": 653, "lineas": 57, "wpm": 131.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 11.46}
 {"video_id": "c_uVGErjhV0", "clase": "rota", "dur_s": 886, "palabras": 1136, "lineas": 109, "wpm": 77.0, "cobertura": 0.851, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 10.42}
+{"video_id": "caNug8CAkWo", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "cb8NoBElCxo", "clase": "util", "dur_s": 550, "palabras": 1087, "lineas": 96, "wpm": 118.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 11.32}
 {"video_id": "cc3YjyrPihk", "clase": "util", "dur_s": 826, "palabras": 1754, "lineas": 156, "wpm": 127.3, "cobertura": 1.0, "bucles": 0.0355, "marcas": 32, "palabras_por_linea": 11.24}
 {"video_id": "ck2yQCFkuSM", "clase": "util", "dur_s": 614, "palabras": 1594, "lineas": 119, "wpm": 155.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 1, "palabras_por_linea": 13.39}
@@ -1234,6 +1249,7 @@
 {"video_id": "cpqvR32WKZs", "clase": "util", "dur_s": 469, "palabras": 1287, "lineas": 95, "wpm": 164.7, "cobertura": 1.0, "bucles": 0.0023, "marcas": 16, "palabras_por_linea": 13.55}
 {"video_id": "d12ceyPG3xo", "clase": "util", "dur_s": 327, "palabras": 864, "lineas": 66, "wpm": 158.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 13.09}
 {"video_id": "d1OMIcnk6g4", "clase": "util", "dur_s": 379, "palabras": 815, "lineas": 67, "wpm": 129.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 4, "palabras_por_linea": 12.16}
+{"video_id": "d27zlUWYrmM", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "d2N1A9VUFZg", "clase": "util", "dur_s": 307, "palabras": 835, "lineas": 60, "wpm": 163.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 13.92}
 {"video_id": "d2QsB32Qlpk", "clase": "util", "dur_s": 357, "palabras": 882, "lineas": 71, "wpm": 148.1, "cobertura": 1.0, "bucles": 0.0011, "marcas": 23, "palabras_por_linea": 12.42}
 {"video_id": "d2oxIue3DuA", "clase": "util", "dur_s": 758, "palabras": 1411, "lineas": 123, "wpm": 111.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 15, "palabras_por_linea": 11.47}
@@ -1253,6 +1269,7 @@
 {"video_id": "d_RtEDWFqWc", "clase": "util", "dur_s": 710, "palabras": 1976, "lineas": 146, "wpm": 167.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 13.53}
 {"video_id": "dasSwasFkCs", "clase": "util", "dur_s": 393, "palabras": 835, "lineas": 68, "wpm": 127.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 12.28}
 {"video_id": "ddXdFlprwgA", "clase": "util", "dur_s": 1352, "palabras": 3901, "lineas": 269, "wpm": 173.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 29, "palabras_por_linea": 14.5}
+{"video_id": "ddhwiRgKPFw", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "devtX7upfuA", "clase": "util", "dur_s": 1507, "palabras": 3421, "lineas": 274, "wpm": 136.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 29, "palabras_por_linea": 12.49}
 {"video_id": "df5z25nqs08", "clase": "util", "dur_s": 1688, "palabras": 3119, "lineas": 283, "wpm": 110.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 49, "palabras_por_linea": 11.02}
 {"video_id": "dhABrr9xZDc", "clase": "rota", "dur_s": 410, "palabras": 590, "lineas": 59, "wpm": 86.3, "cobertura": 0.972, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 10.0}
@@ -1297,6 +1314,7 @@
 {"video_id": "fHSUhdnI-Hw", "clase": "util", "dur_s": 712, "palabras": 1638, "lineas": 124, "wpm": 137.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 44, "palabras_por_linea": 13.21}
 {"video_id": "fK2y-kBsE3s", "clase": "util", "dur_s": 1447, "palabras": 3533, "lineas": 285, "wpm": 146.5, "cobertura": 1.0, "bucles": 0.0003, "marcas": 37, "palabras_por_linea": 12.4}
 {"video_id": "fOrSivEXUTc", "clase": "util", "dur_s": 1667, "palabras": 2957, "lineas": 278, "wpm": 106.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 60, "palabras_por_linea": 10.64}
+{"video_id": "fReKwd9mqYE", "clase": "rota", "dur_s": 748, "palabras": 35, "lineas": 33, "wpm": 2.8, "cobertura": 0.337, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 1.06}
 {"video_id": "fSaWqy1a11Y", "clase": "util", "dur_s": 366, "palabras": 778, "lineas": 71, "wpm": 127.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 10.96}
 {"video_id": "fSb99HO1fIw", "clase": "util", "dur_s": 1568, "palabras": 2585, "lineas": 248, "wpm": 98.9, "cobertura": 1.0, "bucles": 0.0039, "marcas": 76, "palabras_por_linea": 10.42}
 {"video_id": "fTTrjIvhSaY", "clase": "util", "dur_s": 755, "palabras": 1798, "lineas": 138, "wpm": 142.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 17, "palabras_por_linea": 13.03}
@@ -1310,6 +1328,7 @@
 {"video_id": "fgVwrWCLvD4", "clase": "util", "dur_s": 510, "palabras": 1022, "lineas": 85, "wpm": 120.2, "cobertura": 1.0, "bucles": 0.001, "marcas": 11, "palabras_por_linea": 12.02}
 {"video_id": "flIbUjmv7JU", "clase": "util", "dur_s": 428, "palabras": 873, "lineas": 72, "wpm": 122.3, "cobertura": 1.0, "bucles": 0.0046, "marcas": 9, "palabras_por_linea": 12.12}
 {"video_id": "fmfnebTInpQ", "clase": "util", "dur_s": 319, "palabras": 897, "lineas": 66, "wpm": 168.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 13.59}
+{"video_id": "fnUu5r3sTpk", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "fpBTeWUCXCI", "clase": "util", "dur_s": 1575, "palabras": 3429, "lineas": 289, "wpm": 130.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 41, "palabras_por_linea": 11.87}
 {"video_id": "frgjLeyH_JM", "clase": "util", "dur_s": 338, "palabras": 882, "lineas": 65, "wpm": 156.5, "cobertura": 1.0, "bucles": 0.0011, "marcas": 7, "palabras_por_linea": 13.57}
 {"video_id": "fsmdOvT9KfU", "clase": "util", "dur_s": 363, "palabras": 909, "lineas": 67, "wpm": 150.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 4, "palabras_por_linea": 13.57}
@@ -1346,6 +1365,7 @@
 {"video_id": "hAClsg-wLls", "clase": "util", "dur_s": 408, "palabras": 862, "lineas": 73, "wpm": 126.8, "cobertura": 1.0, "bucles": 0.0012, "marcas": 7, "palabras_por_linea": 11.81}
 {"video_id": "hB7bD7wH__E", "clase": "util", "dur_s": 400, "palabras": 984, "lineas": 74, "wpm": 147.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 4, "palabras_por_linea": 13.3}
 {"video_id": "hN6OPkoNJMI", "clase": "util", "dur_s": 1735, "palabras": 4056, "lineas": 331, "wpm": 140.3, "cobertura": 1.0, "bucles": 0.0007, "marcas": 39, "palabras_por_linea": 12.25}
+{"video_id": "hNo60-Bd9Kg", "clase": "rota", "dur_s": 460, "palabras": 55, "lineas": 24, "wpm": 7.2, "cobertura": 0.245, "bucles": 0.0833, "marcas": 10, "palabras_por_linea": 2.29}
 {"video_id": "hSD2wOyWetI", "clase": "util", "dur_s": 598, "palabras": 1740, "lineas": 124, "wpm": 174.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 14.03}
 {"video_id": "hSW9-yKKmRo", "clase": "util", "dur_s": 417, "palabras": 1031, "lineas": 76, "wpm": 148.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 13.57}
 {"video_id": "hTsSBKe25gs", "clase": "util", "dur_s": 598, "palabras": 1106, "lineas": 100, "wpm": 110.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 11.06}
@@ -1438,6 +1458,7 @@
 {"video_id": "krikd2OWR_c", "clase": "util", "dur_s": 1055, "palabras": 2590, "lineas": 195, "wpm": 147.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 6, "palabras_por_linea": 13.28}
 {"video_id": "kupBO-BE4iA", "clase": "util", "dur_s": 633, "palabras": 1630, "lineas": 116, "wpm": 154.4, "cobertura": 1.0, "bucles": 0.0006, "marcas": 10, "palabras_por_linea": 14.05}
 {"video_id": "kwDi-Lorbks", "clase": "util", "dur_s": 735, "palabras": 1746, "lineas": 142, "wpm": 142.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 12.3}
+{"video_id": "l0Qf3VvObAQ", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "l4Y7eEN0hls", "clase": "util", "dur_s": 448, "palabras": 923, "lineas": 77, "wpm": 123.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 11.99}
 {"video_id": "l7f_aKq5n6Y", "clase": "util", "dur_s": 394, "palabras": 797, "lineas": 72, "wpm": 121.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 15, "palabras_por_linea": 11.07}
 {"video_id": "l9P5UeS1QbI", "clase": "util", "dur_s": 505, "palabras": 1211, "lineas": 93, "wpm": 143.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 13.02}
@@ -1459,8 +1480,10 @@
 {"video_id": "lwCVaHHZciU", "clase": "util", "dur_s": 716, "palabras": 1568, "lineas": 127, "wpm": 131.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 30, "palabras_por_linea": 12.35}
 {"video_id": "lxqjCp8AxMg", "clase": "util", "dur_s": 1707, "palabras": 3959, "lineas": 319, "wpm": 139.2, "cobertura": 1.0, "bucles": 0.0005, "marcas": 41, "palabras_por_linea": 12.41}
 {"video_id": "lz-NVVxJgcQ", "clase": "util", "dur_s": 1645, "palabras": 3158, "lineas": 293, "wpm": 115.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 28, "palabras_por_linea": 10.78}
+{"video_id": "m14oNXd9wPM", "clase": "rota", "dur_s": 596, "palabras": 23, "lineas": 32, "wpm": 2.3, "cobertura": 0.284, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 0.72}
 {"video_id": "m3dXIBribEY", "clase": "util", "dur_s": 814, "palabras": 1938, "lineas": 152, "wpm": 142.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 12.75}
 {"video_id": "m5Wdk0m3PIc", "clase": "util", "dur_s": 759, "palabras": 1652, "lineas": 135, "wpm": 130.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 12.24}
+{"video_id": "m5xJnYwdYS8", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "m62m_vL4eJk", "clase": "util", "dur_s": 300, "palabras": 718, "lineas": 58, "wpm": 143.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 12.38}
 {"video_id": "mAJ4Vywev0w", "clase": "util", "dur_s": 1036, "palabras": 1910, "lineas": 165, "wpm": 110.7, "cobertura": 1.0, "bucles": 0.0005, "marcas": 50, "palabras_por_linea": 11.58}
 {"video_id": "mCU2Thn0Qn8", "clase": "util", "dur_s": 423, "palabras": 657, "lineas": 74, "wpm": 93.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 19, "palabras_por_linea": 8.88}
@@ -1470,6 +1493,7 @@
 {"video_id": "mJ4KeoTQoMw", "clase": "util", "dur_s": 427, "palabras": 799, "lineas": 71, "wpm": 112.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 11.25}
 {"video_id": "mJ7KBLc7zw4", "clase": "util", "dur_s": 897, "palabras": 2401, "lineas": 175, "wpm": 160.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 22, "palabras_por_linea": 13.72}
 {"video_id": "mJpbRQN-joA", "clase": "util", "dur_s": 326, "palabras": 839, "lineas": 67, "wpm": 154.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 12.52}
+{"video_id": "mLMMnyuZZMM", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "mNo_Ehk_RDY", "clase": "util", "dur_s": 541, "palabras": 1746, "lineas": 117, "wpm": 193.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 2, "palabras_por_linea": 14.92}
 {"video_id": "mcDmRvJReO8", "clase": "util", "dur_s": 424, "palabras": 1055, "lineas": 80, "wpm": 149.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 5, "palabras_por_linea": 13.19}
 {"video_id": "mcjS7ksq2Vs", "clase": "util", "dur_s": 381, "palabras": 796, "lineas": 70, "wpm": 125.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 18, "palabras_por_linea": 11.37}
@@ -1562,6 +1586,7 @@
 {"video_id": "qGgtfaEHK8I", "clase": "util", "dur_s": 618, "palabras": 1362, "lineas": 113, "wpm": 132.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 13, "palabras_por_linea": 12.05}
 {"video_id": "qIPK0oRsxj0", "clase": "util", "dur_s": 966, "palabras": 2141, "lineas": 168, "wpm": 133.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 36, "palabras_por_linea": 12.74}
 {"video_id": "qJKUxZyFlCs", "clase": "util", "dur_s": 313, "palabras": 764, "lineas": 58, "wpm": 146.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 13.17}
+{"video_id": "qMvQ6TcBeV4", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "qNgl0Pyv3VQ", "clase": "util", "dur_s": 315, "palabras": 860, "lineas": 64, "wpm": 163.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 13.44}
 {"video_id": "qNyDZ7neOEc", "clase": "util", "dur_s": 767, "palabras": 1904, "lineas": 157, "wpm": 148.9, "cobertura": 1.0, "bucles": 0.0042, "marcas": 40, "palabras_por_linea": 12.13}
 {"video_id": "qPWZzx5JW70", "clase": "util", "dur_s": 547, "palabras": 1266, "lineas": 105, "wpm": 138.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 6, "palabras_por_linea": 12.06}
@@ -1575,6 +1600,7 @@
 {"video_id": "qhC53JX-L1U", "clase": "util", "dur_s": 359, "palabras": 693, "lineas": 60, "wpm": 115.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 9, "palabras_por_linea": 11.55}
 {"video_id": "qkghzpd3Wuw", "clase": "util", "dur_s": 939, "palabras": 2300, "lineas": 191, "wpm": 147.0, "cobertura": 1.0, "bucles": 0.0017, "marcas": 70, "palabras_por_linea": 12.04}
 {"video_id": "qlnmMnibs9A", "clase": "util", "dur_s": 929, "palabras": 2440, "lineas": 182, "wpm": 157.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 15, "palabras_por_linea": 13.41}
+{"video_id": "qoLyiaGzc2A", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "qpAKVrRW-Jw", "clase": "util", "dur_s": 404, "palabras": 1023, "lineas": 78, "wpm": 151.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 1, "palabras_por_linea": 13.12}
 {"video_id": "qpIz1TsOOQ4", "clase": "util", "dur_s": 1349, "palabras": 3130, "lineas": 244, "wpm": 139.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 40, "palabras_por_linea": 12.83}
 {"video_id": "qpbLltrump8", "clase": "util", "dur_s": 775, "palabras": 1701, "lineas": 156, "wpm": 131.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 54, "palabras_por_linea": 10.9}
@@ -1804,6 +1830,7 @@
 {"video_id": "yE7Zy__P5jk", "clase": "util", "dur_s": 585, "palabras": 1559, "lineas": 118, "wpm": 160.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 13.21}
 {"video_id": "yJJMwUXzvHg", "clase": "util", "dur_s": 548, "palabras": 1494, "lineas": 120, "wpm": 163.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 32, "palabras_por_linea": 12.45}
 {"video_id": "yKPwi5DUM7o", "clase": "util", "dur_s": 669, "palabras": 1193, "lineas": 122, "wpm": 107.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 25, "palabras_por_linea": 9.78}
+{"video_id": "yKbmFH04pA8", "clase": "rota", "motivo": "sin texto", "dur_s": 0, "palabras": 0, "lineas": 0, "wpm": 0.0, "cobertura": 0.0, "bucles": 0.0, "marcas": 0, "palabras_por_linea": 0}
 {"video_id": "yNCDyPBazII", "clase": "util", "dur_s": 456, "palabras": 878, "lineas": 77, "wpm": 115.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 11.4}
 {"video_id": "yOBnNrHi4sM", "clase": "util", "dur_s": 566, "palabras": 1485, "lineas": 119, "wpm": 157.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 12.48}
 {"video_id": "ySRfAxO6KD8", "clase": "util", "dur_s": 710, "palabras": 1449, "lineas": 129, "wpm": 122.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 22, "palabras_por_linea": 11.23}
@@ -1819,3 +1846,38 @@
 {"video_id": "ysrQFl9dYaU", "clase": "util", "dur_s": 372, "palabras": 932, "lineas": 70, "wpm": 150.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 15, "palabras_por_linea": 13.31}
 {"video_id": "yth4U9ndT10", "clase": "util", "dur_s": 992, "palabras": 2142, "lineas": 190, "wpm": 129.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 48, "palabras_por_linea": 11.27}
 {"video_id": "yuEmbFxb4mI", "clase": "util", "dur_s": 379, "palabras": 818, "lineas": 66, "wpm": 129.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 12.39}
+{"video_id": "z2wXQxdZFME", "clase": "util", "dur_s": 461, "palabras": 1291, "lineas": 90, "wpm": 168.2, "cobertura": 1.0, "bucles": 0.0008, "marcas": 0, "palabras_por_linea": 14.34}
+{"video_id": "zEvJkG2t4nw", "clase": "util", "dur_s": 328, "palabras": 921, "lineas": 74, "wpm": 168.7, "cobertura": 1.0, "bucles": 0.0033, "marcas": 30, "palabras_por_linea": 12.45}
+{"video_id": "zGk9jl7ZoPc", "clase": "util", "dur_s": 784, "palabras": 1831, "lineas": 137, "wpm": 140.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 27, "palabras_por_linea": 13.36}
+{"video_id": "zGwHupDMLH4", "clase": "util", "dur_s": 948, "palabras": 2194, "lineas": 184, "wpm": 138.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 20, "palabras_por_linea": 11.92}
+{"video_id": "zIa2MrZ7IRU", "clase": "util", "dur_s": 569, "palabras": 1208, "lineas": 104, "wpm": 127.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 18, "palabras_por_linea": 11.62}
+{"video_id": "zKKu3K4OKts", "clase": "util", "dur_s": 387, "palabras": 974, "lineas": 74, "wpm": 150.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 13.16}
+{"video_id": "zS4molXUswY", "clase": "util", "dur_s": 996, "palabras": 2020, "lineas": 183, "wpm": 121.7, "cobertura": 1.0, "bucles": 0.0005, "marcas": 35, "palabras_por_linea": 11.04}
+{"video_id": "zUWT_4nKEFA", "clase": "util", "dur_s": 705, "palabras": 1494, "lineas": 128, "wpm": 127.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 46, "palabras_por_linea": 11.67}
+{"video_id": "zVcDWd1h-FI", "clase": "util", "dur_s": 299, "palabras": 845, "lineas": 61, "wpm": 169.7, "cobertura": 1.0, "bucles": 0.0, "marcas": 3, "palabras_por_linea": 13.85}
+{"video_id": "zZWYZN85bGQ", "clase": "util", "dur_s": 799, "palabras": 1920, "lineas": 143, "wpm": 144.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 8, "palabras_por_linea": 13.43}
+{"video_id": "zZhOLKNaHIw", "clase": "util", "dur_s": 689, "palabras": 1685, "lineas": 136, "wpm": 146.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 22, "palabras_por_linea": 12.39}
+{"video_id": "za7-Gg791Co", "clase": "util", "dur_s": 850, "palabras": 2148, "lineas": 160, "wpm": 151.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 29, "palabras_por_linea": 13.43}
+{"video_id": "zbgHqRTCbK0", "clase": "util", "dur_s": 1612, "palabras": 3765, "lineas": 303, "wpm": 140.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 51, "palabras_por_linea": 12.43}
+{"video_id": "zcmLoXeRKoo", "clase": "util", "dur_s": 377, "palabras": 707, "lineas": 62, "wpm": 112.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 9, "palabras_por_linea": 11.4}
+{"video_id": "ze2K94ZD2AQ", "clase": "util", "dur_s": 812, "palabras": 2094, "lineas": 155, "wpm": 154.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 24, "palabras_por_linea": 13.51}
+{"video_id": "zgnuY0P_6x0", "clase": "rota", "dur_s": 1387, "palabras": 669, "lineas": 196, "wpm": 28.9, "cobertura": 0.93, "bucles": 0.0, "marcas": 108, "palabras_por_linea": 3.41}
+{"video_id": "zhkQM8ix32Y", "clase": "util", "dur_s": 1109, "palabras": 2489, "lineas": 241, "wpm": 134.6, "cobertura": 1.0, "bucles": 0.002, "marcas": 152, "palabras_por_linea": 10.33}
+{"video_id": "ziqptAwsu-I", "clase": "util", "dur_s": 416, "palabras": 696, "lineas": 69, "wpm": 100.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 10.09}
+{"video_id": "zjLaI02qSfc", "clase": "util", "dur_s": 462, "palabras": 1050, "lineas": 86, "wpm": 136.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 9, "palabras_por_linea": 12.21}
+{"video_id": "zjlbb7XdTDE", "clase": "util", "dur_s": 338, "palabras": 842, "lineas": 68, "wpm": 149.4, "cobertura": 1.0, "bucles": 0.0, "marcas": 5, "palabras_por_linea": 12.38}
+{"video_id": "zm24zLnjT-Y", "clase": "util", "dur_s": 351, "palabras": 974, "lineas": 77, "wpm": 166.3, "cobertura": 1.0, "bucles": 0.0, "marcas": 7, "palabras_por_linea": 12.65}
+{"video_id": "zmBeIxNrn80", "clase": "util", "dur_s": 1683, "palabras": 3188, "lineas": 293, "wpm": 113.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 47, "palabras_por_linea": 10.88}
+{"video_id": "znSf9FeVKck", "clase": "util", "dur_s": 356, "palabras": 790, "lineas": 66, "wpm": 133.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 11.97}
+{"video_id": "zpHJlSvIFGo", "clase": "util", "dur_s": 426, "palabras": 1136, "lineas": 84, "wpm": 159.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 5, "palabras_por_linea": 13.52}
+{"video_id": "zpl7RJ7K6NI", "clase": "util", "dur_s": 415, "palabras": 1114, "lineas": 89, "wpm": 161.1, "cobertura": 1.0, "bucles": 0.0, "marcas": 16, "palabras_por_linea": 12.52}
+{"video_id": "zqK14i6B21g", "clase": "util", "dur_s": 1060, "palabras": 2059, "lineas": 191, "wpm": 116.6, "cobertura": 1.0, "bucles": 0.0039, "marcas": 51, "palabras_por_linea": 10.78}
+{"video_id": "zrROYWOtvwQ", "clase": "util", "dur_s": 549, "palabras": 1815, "lineas": 138, "wpm": 198.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 13.15}
+{"video_id": "zsML7mRm24Y", "clase": "util", "dur_s": 565, "palabras": 1148, "lineas": 95, "wpm": 121.9, "cobertura": 1.0, "bucles": 0.0, "marcas": 21, "palabras_por_linea": 12.08}
+{"video_id": "zvC20-z7oZc", "clase": "rota", "dur_s": 355, "palabras": 424, "lineas": 57, "wpm": 71.6, "cobertura": 0.922, "bucles": 0.0, "marcas": 12, "palabras_por_linea": 7.44}
+{"video_id": "zyBXpBV8FsE", "clase": "util", "dur_s": 361, "palabras": 840, "lineas": 69, "wpm": 139.6, "cobertura": 1.0, "bucles": 0.0, "marcas": 5, "palabras_por_linea": 12.17}
+{"video_id": "zyEn5XMqgYc", "clase": "util", "dur_s": 384, "palabras": 852, "lineas": 82, "wpm": 133.2, "cobertura": 1.0, "bucles": 0.0, "marcas": 11, "palabras_por_linea": 10.39}
+{"video_id": "zyJHZNdP2ZE", "clase": "util", "dur_s": 500, "palabras": 1235, "lineas": 102, "wpm": 148.3, "cobertura": 1.0, "bucles": 0.0016, "marcas": 20, "palabras_por_linea": 12.11}
+{"video_id": "zyoPIukebF8", "clase": "util", "dur_s": 1333, "palabras": 2549, "lineas": 222, "wpm": 114.8, "cobertura": 1.0, "bucles": 0.0, "marcas": 46, "palabras_por_linea": 11.48}
+{"video_id": "zzIezYsUoqQ", "clase": "rota", "dur_s": 679, "palabras": 861, "lineas": 99, "wpm": 76.0, "cobertura": 1.0, "bucles": 0.0, "marcas": 39, "palabras_por_linea": 8.7}
+{"video_id": "zzw6LL5HQE8", "clase": "util", "dur_s": 385, "palabras": 875, "lineas": 70, "wpm": 136.5, "cobertura": 1.0, "bucles": 0.0, "marcas": 10, "palabras_por_linea": 12.5}

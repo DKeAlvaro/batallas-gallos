@@ -111,13 +111,18 @@ def main():
     for f in sorted(os.listdir(SUB_DIR)):
         if not f.endswith('.es.vtt'):
             continue
+        vid = f.split('.')[0]
+        m = None
         try:
             m = metricas(os.path.join(SUB_DIR, f))
         except Exception as e:
             print('fallo con', f, e)
-            continue
-        if m:
-            filas.append(m)
+        if m is None:
+            # sin texto suficiente: el ASR no capto nada aprovechable
+            m = {'video_id': vid, 'clase': 'rota', 'motivo': 'sin texto',
+                 'dur_s': 0, 'palabras': 0, 'lineas': 0, 'wpm': 0.0,
+                 'cobertura': 0.0, 'bucles': 0.0, 'marcas': 0, 'palabras_por_linea': 0}
+        filas.append(m)
     with open(OUT, 'w', encoding='utf-8') as fh:
         for m in filas:
             fh.write(json.dumps(m, ensure_ascii=False) + '\n')

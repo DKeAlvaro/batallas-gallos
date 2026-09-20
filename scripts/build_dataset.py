@@ -5,6 +5,9 @@ Salida:  dataset/<vid>.json  y  dataset.jsonl (una linea por batalla)
 """
 import json, re, os, glob, sys
 
+# clases de calidad que no entran en el dataset (ver scripts/calidad.py)
+MALAS = ('rota', 'bucle')
+
 TS = re.compile(r'(\d{2}):(\d{2}):(\d{2})\.(\d{3})')
 TAG = re.compile(r'<[^>]+>')
 
@@ -49,11 +52,21 @@ def main():
     for line in open('meta/index.jsonl', encoding='utf-8'):
         d = json.loads(line)
         meta[d['video_id']] = d
+    # calidad medida con scripts/calidad.py: las mal transcritas se quedan fuera
+    calidad = {}
+    if os.path.exists('calidad.jsonl'):
+        for line in open('calidad.jsonl', encoding='utf-8'):
+            c = json.loads(line)
+            calidad[c['video_id']] = c
+    else:
+        print('AVISO: no hay calidad.jsonl, no se filtra nada')
     files = sorted(glob.glob('subs/*.es.vtt')) or sorted(glob.glob('subs/*.es-orig.vtt'))
     os.makedirs('dataset', exist_ok=True)
     seen = set()
     n_lines = n_words = 0
-    with open('dataset.jsonl', 'w', encoding='utf-8') as out:
+    descartadas = []
+    with open('dataset.jsonl', 'w', encoding='utf-8') as out, \
+         open('descartadas.jsonl', 'w', encoding='utf-8') as des:
         for path in sorted(glob.glob('subs/*.vtt')):
             vid = os.path.basename(path).split('.')[0]
             if vid in seen:
@@ -63,6 +76,12 @@ def main():
             if path.endswith('.es-orig.vtt') and os.path.exists(other):
                 continue
             seen.add(vid)
+            c = calidad.get(vid)
+            if c and c['clase'] in MALAS:
+                descendida = dict(c)
+                descendida['title'] = (meta.get(vid) or {}).get('raw_title')
+                descartadas.append(descendida)
+                continue
             lines = parse_vtt(path)
             if not lines:
                 continue
@@ -87,7 +106,10 @@ def main():
             out.write(json.dumps(rec, ensure_ascii=False) + '\n')
             n_lines += rec['n_lines']
             n_words += rec['n_words']
-    print(f'{len(seen)} batallas, {n_lines} lineas, {n_words} palabras')
+        for d in descartadas:
+            des.write(json.dumps(d, ensure_ascii=False) + '\n')
+    print(f'{len(seen) - len(descartadas)} batallas, {n_lines} lineas, {n_words} palabras')
+    print(f'descartadas por mala transcripcion: {len(descartadas)} -> descartadas.jsonl')
 
 if __name__ == '__main__':
     main()
