@@ -4,8 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Batallas de gallos</title>
+<script>
+  // el tema se fija antes de pintar, para que no haya un fogonazo blanco
+  document.documentElement.dataset.tema = localStorage.getItem('tema') ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
+</script>
 <style>
-  :root { --papel:#f4f5f2; --tinta:#14161a; --tenue:#666c66; --linea:#d3d7d0 }
+  :root { --papel:#f4f5f2; --papel2:#e9ebe6; --tinta:#14161a; --tenue:#666c66;
+          --linea:#d3d7d0; --acento:#c2185b; --campo:#fff }
+  :root[data-tema="oscuro"] { --papel:#15161a; --papel2:#1e2024; --tinta:#e8e9e4;
+          --tenue:#9aa09a; --linea:#2e3135; --acento:#f0538f; --campo:#1b1d21 }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-tema]) { --papel:#15161a; --papel2:#1e2024; --tinta:#e8e9e4;
+            --tenue:#9aa09a; --linea:#2e3135; --acento:#f0538f; --campo:#1b1d21 }
+  }
   * { box-sizing:border-box }
   body { margin:0; height:100dvh; display:flex; flex-direction:column;
          background:var(--papel); color:var(--tinta); font:16px/1.5 Georgia,serif }
@@ -13,15 +25,19 @@
            border-bottom:2px solid var(--tinta) }
   h1 { font:400 1.15rem/1 "Arial Narrow",sans-serif; margin:0; white-space:nowrap }
   input { flex:1; max-width:22rem; padding:.3rem .5rem; border:1px solid var(--tinta);
-          background:#fff; font:inherit; font-size:.9rem }
+          background:var(--campo); color:var(--tinta); font:inherit; font-size:.9rem }
   #volver { font:inherit; font-size:.85rem; border:0; background:none; cursor:pointer;
-            padding:0; text-decoration:underline }
+            padding:0; text-decoration:underline; color:var(--tinta) }
+  #tema { border:0; background:none; color:var(--tenue); cursor:pointer;
+          font:400 1rem/1 Georgia,serif; padding:.2rem .4rem }
+  #tema:hover { color:var(--acento) }
   main { flex:1; min-height:0; display:flex }
   #lista { flex:1; overflow-y:auto; margin:0; padding:0; list-style:none }
   #lista button { display:block; width:100%; text-align:left; padding:.5rem 1rem; border:0;
                   border-bottom:1px solid var(--linea); background:none; font:inherit;
                   font-size:.9rem; line-height:1.3; cursor:pointer }
-  #lista button:hover { background:#e9ebe6 }
+  #lista button:hover { background:var(--papel2) }
+  #lista button[aria-current] { background:var(--papel2) }
   #lista b { display:block }
   #lista span { color:var(--tenue); font-size:.85em }
   #texto { flex:1; overflow-y:auto; padding:1rem 1.2rem 4rem }
@@ -36,6 +52,7 @@
   <button id="volver" hidden>← Batallas</button>
   <h1>Batallas de gallos</h1>
   <input id="q" type="search" placeholder="Buscar MC, evento o ronda…">
+  <button id="tema" title="Cambiar entre claro y oscuro" aria-label="Cambiar entre claro y oscuro">◐</button>
 </header>
 <main>
   <ol id="lista"></ol>
@@ -106,6 +123,11 @@
 
   $('#q').addEventListener('input', filtra);
   $('#volver').addEventListener('click', portada);
+  $('#tema').addEventListener('click', function () {
+    var n = document.documentElement.dataset.tema === 'oscuro' ? 'claro' : 'oscuro';
+    document.documentElement.dataset.tema = n;
+    localStorage.setItem('tema', n);
+  });
   $('#lista').addEventListener('click', e => {
     const b = e.target.closest('button[data-id]');
     if (b) abre(b.dataset.id);

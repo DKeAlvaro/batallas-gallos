@@ -4,18 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Acta de barras — batallas de gallos transcritas</title>
-<meta name="description" content="1.764 batallas de gallos en español transcritas línea a línea a partir de YouTube: 2,9 millones de palabras que solo existían como sonido.">
+<meta name="description" content="1.751 batallas de gallos en español transcritas línea a línea a partir de YouTube: 3,1 millones de palabras que solo existían como sonido.">
+<script>
+  // el tema se fija antes de pintar, para que no haya un fogonazo blanco
+  document.documentElement.dataset.tema = localStorage.getItem('tema') ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'oscuro' : 'claro');
+</script>
 <style>
   :root { --papel:#f4f5f2; --papel2:#e9ebe6; --tinta:#14161a; --tenue:#666c66;
-          --linea:#d3d7d0; --acento:#c2185b }
+          --linea:#d3d7d0; --acento:#c2185b; --campo:#fff }
+  :root[data-tema="oscuro"] { --papel:#15161a; --papel2:#1e2024; --tinta:#e8e9e4;
+          --tenue:#9aa09a; --linea:#2e3135; --acento:#f0538f; --campo:#1b1d21 }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-tema]) { --papel:#15161a; --papel2:#1e2024; --tinta:#e8e9e4;
+            --tenue:#9aa09a; --linea:#2e3135; --acento:#f0538f; --campo:#1b1d21 }
+  }
   * { box-sizing:border-box }
   body { margin:0; background:var(--papel); color:var(--tinta);
          font:17px/1.55 Georgia,serif; font-variant-numeric:tabular-nums }
   .hoja { max-width:60rem; margin:0 auto; padding:0 1.2rem 5rem }
   a { color:var(--acento); text-underline-offset:.2em }
+  code { font-size:.92em }
 
   header { padding:3.2rem 0 1.8rem; border-bottom:2px solid var(--tinta) }
-  .marca { font:400 1rem/1 "Arial Narrow",sans-serif; letter-spacing:.02em; color:var(--tenue) }
+  .linea-sup { display:flex; justify-content:space-between; align-items:baseline; gap:1rem }
+  .marca { font:400 1rem/1 "Arial Narrow",sans-serif; letter-spacing:.02em; color:var(--tenue); margin:0 }
+  #tema { border:0; background:none; color:var(--tenue); cursor:pointer;
+          font:400 1.1rem/1 Georgia,serif; padding:.2rem .4rem }
+  #tema:hover { color:var(--acento) }
   h1 { font:400 clamp(2.1rem,6.4vw,4.2rem)/.98 "Arial Narrow",sans-serif;
        margin:.7rem 0 0; max-width:22ch }
   h1 em { font-style:normal; color:var(--acento) }
@@ -59,7 +75,10 @@
 <div class="hoja">
 
   <header>
-    <p class="marca">Acta de barras</p>
+    <div class="linea-sup">
+      <p class="marca">Acta de barras</p>
+      <button id="tema" title="Cambiar entre claro y oscuro" aria-label="Cambiar entre claro y oscuro">◐</button>
+    </div>
     <h1>Estas rimas se dijeron una vez. <em>Nadie las escribió.</em></h1>
     <p class="entrada">
       Las batallas de gallos se improvisan: existen mientras se dicen y luego se pierden.
@@ -139,5 +158,12 @@
   </footer>
 
 </div>
+<script>
+  document.getElementById('tema').addEventListener('click', function () {
+    var n = document.documentElement.dataset.tema === 'oscuro' ? 'claro' : 'oscuro';
+    document.documentElement.dataset.tema = n;
+    localStorage.setItem('tema', n);
+  });
+</script>
 </body>
 </html>
