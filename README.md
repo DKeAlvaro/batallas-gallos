@@ -9,7 +9,7 @@ rankings, entrenar un modelo) sin volver a tocar el vídeo.
 ## Qué hay aquí
 
 - `web/index.html` — el visor. Un solo fichero con el CSS y el JS dentro: una lista de
-  batallas con buscador y, al lado, la transcripción. Funciona abierto directamente
+  batallas y, al pulsar una, su transcripción a pantalla completa. Funciona abierto
   (`file://`) para navegar el corpus; para leer las transcripciones hay que servirlo
   (por ejemplo `python3 -m http.server -d web`).
 - `web/data/index.js` — una entrada por batalla (sin el texto): MCs, ronda, evento, año,
