@@ -7,7 +7,7 @@
 import json, os, gzip, shutil, sys
 
 ROOT = os.path.expanduser('~/batallas')
-OUT = os.path.join(ROOT, 'web', 'data')
+OUT = os.path.join(ROOT, 'docs', 'data')
 BDIR = os.path.join(OUT, 'battles')
 
 def main():

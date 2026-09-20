@@ -8,14 +8,14 @@ rankings, entrenar un modelo) sin volver a tocar el vídeo.
 
 ## Qué hay aquí
 
-- `web/index.html` — el visor. Un solo fichero con el CSS y el JS dentro: una lista de
+- `docs/index.html` — el visor. Un solo fichero con el CSS y el JS dentro: una lista de
   batallas y, al pulsar una, su transcripción a pantalla completa. Funciona abierto
   (`file://`) para navegar el corpus; para leer las transcripciones hay que servirlo
-  (por ejemplo `python3 -m http.server -d web`).
-- `web/data/index.js` — una entrada por batalla (sin el texto): MCs, ronda, evento, año,
+  (por ejemplo `python3 -m http.server -d docs`).
+- `docs/data/index.js` — una entrada por batalla (sin el texto): MCs, ronda, evento, año,
   formato, duración, líneas, palabras. Es `.js` y no `.json` para poder abrir sin servidor.
-- `web/data/battles/<id>.json` — la transcripción completa: la lista de líneas de habla.
-- `web/data/dataset.jsonl.gz` — el corpus entero, una batalla por línea, comprimido.
+- `docs/data/battles/<id>.json` — la transcripción completa: la lista de líneas de habla.
+- `docs/data/dataset.jsonl.gz` — el corpus entero, una batalla por línea, comprimido.
 - `scripts/` — el pipeline, tal como se usó.
 - `canales/` — los índices de descubrimiento (`id|título|duración` por canal).
 
