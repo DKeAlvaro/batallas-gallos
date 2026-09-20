@@ -8,12 +8,12 @@ rankings, entrenar un modelo) sin volver a tocar el vídeo.
 
 ## Qué hay aquí
 
-- `web/` — lector del corpus. HTML, CSS y JavaScript sin dependencias. Abre `web/index.html`
-  (navega con `file://`) o sirve la carpeta para leer las transcripciones.
-  Teclas: `/` busca, `j`/`k` recorren tiradas, `n`/`p` cambian de batalla.
-- `web/data/index.json` e `index.js` — una entrada por batalla (sin el texto): MCs, ronda,
-  evento, año, formato, duración, líneas, palabras. El `.js` existe para poder abrir la
-  página sin servidor.
+- `web/index.html` — el visor. Un solo fichero con el CSS y el JS dentro: una lista de
+  batallas con buscador y, al lado, la transcripción. Funciona abierto directamente
+  (`file://`) para navegar el corpus; para leer las transcripciones hay que servirlo
+  (por ejemplo `python3 -m http.server -d web`).
+- `web/data/index.js` — una entrada por batalla (sin el texto): MCs, ronda, evento, año,
+  formato, duración, líneas, palabras. Es `.js` y no `.json` para poder abrir sin servidor.
 - `web/data/battles/<id>.json` — la transcripción completa: la lista de líneas de habla.
 - `web/data/dataset.jsonl.gz` — el corpus entero, una batalla por línea, comprimido.
 - `scripts/` — el pipeline, tal como se usó.
@@ -46,8 +46,7 @@ Cada batalla:
 
 `lines` es texto plano, en el orden en que se habló y ya desduplicado. No hay marcas de
 tiempo: se quitaron a propósito para simplificar el dataset. Tampoco hay etiqueta de quién
-habla. El lector agrupa las líneas en *tiradas* de unas 45 palabras para que se lean como
-párrafos.
+habla. El visor junta las líneas en párrafos de unas 45 palabras para que se puedan leer.
 
 ## Cómo se construyó
 
@@ -87,14 +86,8 @@ python3 scripts/export_web.py     # -> web/data/
 - **Vídeos, no audio.** Este repo no distribuye vídeo ni audio, solo transcripciones y
   metadata. Las transcripciones son de YouTube; el texto de las batallas pertenece a sus
   autores. Uso personal y de investigación.
-- **Las líneas** vienen del subtítulo, no de la barra de 4x4. Una «tirada» en el lector son
+- **Las líneas** vienen del subtítulo, no de la barra de 4x4. Los párrafos del visor son
   unas 45 palabras seguidas.
-
-## Comprobación
-
-`node scripts/prueba_web.js` ejecuta la interfaz completa con un DOM falso y datos reales
-(arranque, gráficas del corpus y apertura de una batalla). Sirve para no romperla sin darse
-cuenta cuando no hay navegador a mano.
 
 ## Herramientas
 
