@@ -9,11 +9,12 @@ rankings, entrenar un modelo) sin volver a tocar el vídeo.
 ## Qué hay aquí
 
 - `web/` — lector del corpus. HTML, CSS y JavaScript sin dependencias. Abre `web/index.html`
-  o sirve la carpeta. Busca por MC, evento, ronda, y opcionalmente dentro de las
-  transcripciones. Teclas: `/` busca, `j`/`k` recorren barras, `n`/`p` cambian de batalla.
-- `web/data/index.json` — una entrada por batalla (sin el texto): MCs, ronda, evento, año,
-  formato, duración, barras, palabras, palabras por minuto.
-- `web/data/battles/<id>.json` — la transcripción completa: lista de `{start, end, text}`.
+  (navega con `file://`) o sirve la carpeta para leer las transcripciones.
+  Teclas: `/` busca, `j`/`k` recorren tiradas, `n`/`p` cambian de batalla.
+- `web/data/index.json` e `index.js` — una entrada por batalla (sin el texto): MCs, ronda,
+  evento, año, formato, duración, líneas, palabras. El `.js` existe para poder abrir la
+  página sin servidor.
+- `web/data/battles/<id>.json` — la transcripción completa: la lista de líneas de habla.
 - `web/data/dataset.jsonl.gz` — el corpus entero, una batalla por línea, comprimido.
 - `scripts/` — el pipeline, tal como se usó.
 - `canales/` — los índices de descubrimiento (`id|título|duración` por canal).
@@ -37,14 +38,16 @@ Cada batalla:
   "n_words": 859,
   "source": "youtube-autosub",
   "lines": [
-    {"start": 3.90, "end": 3.91, "text": "volver este primero dos minutos 4x4"}
+    "volver este primero dos minutos 4x4",
+    "libre rat race está listo los jurados"
   ]
 }
 ```
 
-`lines` no lleva etiqueta de quién habla: la trazabilidad se deja al vídeo. Cada línea
-tiene su segundo exacto, así que la atribución de MCs se puede hacer más tarde
-(diarización, o a mano) sin perder nada.
+`lines` es texto plano, en el orden en que se habló y ya desduplicado. No hay marcas de
+tiempo: se quitaron a propósito para simplificar el dataset. Tampoco hay etiqueta de quién
+habla. El lector agrupa las líneas en *tiradas* de unas 45 palabras para que se lean como
+párrafos.
 
 ## Cómo se construyó
 
@@ -76,13 +79,22 @@ python3 scripts/export_web.py     # -> web/data/
   entrenar un modelo conviene limpiarlo.
 - **Cobertura.** Una parte de los vídeos no tiene subtítulos de ningún tipo (~13% en la
   muestra medida). Esos necesitarían ASR propio (Whisper) sobre el audio.
-- **Sin hablante.** No hay diarización: no se sabe qué barra es de qué MC salvo por el
+- **Sin hablante.** No hay diarización: no se sabe qué línea es de qué MC salvo por el
   contexto y el turno de palabra.
+- **Sin marcas de tiempo.** Se quitaron a propósito. Se pierde saltar al minuto exacto del
+  vídeo, y la velocidad de habla. El `.vtt` original se puede volver a descargar con el
+  script de cosecha si hiciera falta.
 - **Vídeos, no audio.** Este repo no distribuye vídeo ni audio, solo transcripciones y
   metadata. Las transcripciones son de YouTube; el texto de las batallas pertenece a sus
   autores. Uso personal y de investigación.
-- **La numeración de barras** es de línea de subtítulo, no de barra de 4x4. Una «barra»
-  aquí es un segmento de habla con su minuto.
+- **Las líneas** vienen del subtítulo, no de la barra de 4x4. Una «tirada» en el lector son
+  unas 45 palabras seguidas.
+
+## Comprobación
+
+`node scripts/prueba_web.js` ejecuta la interfaz completa con un DOM falso y datos reales
+(arranque, gráficas del corpus y apertura de una batalla). Sirve para no romperla sin darse
+cuenta cuando no hay navegador a mano.
 
 ## Herramientas
 

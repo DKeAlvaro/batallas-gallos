@@ -3,56 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Acta de barras — corpus de batallas de gallos</title>
+<title>Acta de barras — batallas de gallos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="cabecera">
-  <h1>Acta de barras</h1>
-  <p class="lema">Transcripciones de batallas de gallos en español, línea a línea, con su minuto exacto.</p>
-  <dl class="corpus" id="corpus"></dl>
+  <div class="marca">
+    <h1>Acta de barras</h1>
+    <p>Transcripciones de batallas de gallos en español, agrupadas en tiradas legibles.</p>
+  </div>
+  <dl class="cifras" id="cifras"></dl>
 </header>
 
-<main class="obra">
+<nav class="pestanas" role="tablist">
+  <button role="tab" id="tab-lector" aria-controls="panel-lector" aria-selected="true">Lector</button>
+  <button role="tab" id="tab-corpus" aria-controls="panel-corpus" aria-selected="false">El corpus</button>
+  <span class="aviso" id="aviso" hidden></span>
+</nav>
 
-  <nav class="rail" aria-label="Batallas">
-    <div class="buscador">
-      <input id="q" type="search" placeholder="MC, evento, ronda…" aria-label="Filtrar batallas" autocomplete="off">
-      <label class="modo">
-        <input type="checkbox" id="fulltext"> buscar dentro de las transcripciones
+<!-- ------------------------------------------------ lector -->
+<section class="panel" id="panel-lector" role="tabpanel" aria-labelledby="tab-lector">
+  <div class="columna-izq">
+    <div class="filtros">
+      <label for="q" class="etiqueta">Buscar por MC, evento o ronda</label>
+      <input id="q" type="search" placeholder="Aczino, FMS México, octavos…" autocomplete="off">
+      <label class="interruptor" id="lbl-full">
+        <input type="checkbox" id="fulltext">
+        <span>Buscar también dentro de las transcripciones</span>
       </label>
-      <div class="progreso" id="progreso" hidden><span id="progreso-txt"></span></div>
+      <p class="progreso" id="progreso" hidden></p>
     </div>
-    <div class="muro" id="muro" aria-hidden="true"></div>
     <ol class="lista" id="lista"></ol>
-    <p class="rail-pie" id="rail-pie"></p>
-  </nav>
+    <button class="mas" id="mas" hidden>Mostrar más batallas</button>
+  </div>
 
-  <section class="lector" id="lector" tabindex="-1">
-    <div class="vacio" id="vacio">
-      <p>Elige una batalla en la lista, o toca una barra del muro.</p>
-      <p class="vacio-sub">Cada barra del muro es una batalla: su altura es el número de palabras, su color el año.</p>
-    </div>
+  <article class="lector" id="lector">
+    <p class="vacio" id="vacio">Elige una batalla de la izquierda.</p>
+  </article>
+</section>
 
-    <article class="acta" id="acta" hidden>
-      <div class="careo" id="careo"></div>
-      <p class="ficha" id="ficha"></p>
-      <div class="ritmo" id="ritmo" role="img" aria-label="Ritmo de la batalla: huecos entre barras"></div>
-      <ol class="barras" id="barras"></ol>
-    </article>
-  </section>
-
-</main>
+<!-- ------------------------------------------------ corpus -->
+<section class="panel" id="panel-corpus" role="tabpanel" aria-labelledby="tab-corpus" hidden>
+  <div class="rejilla" id="graficas"></div>
+</section>
 
 <footer class="pie">
   <p id="pie-txt"></p>
-  <p class="credito">Subtítulos automáticos de YouTube, deduplicados. Cada línea enlaza a su minuto en el vídeo original.</p>
+  <p>Los textos vienen de los subtítulos automáticos de YouTube y pertenecen a sus autores.
+     <span id="pie-aviso"></span></p>
 </footer>
 
+<script src="data/index.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

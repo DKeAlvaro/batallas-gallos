@@ -80,7 +80,7 @@ def main():
                 'source': 'youtube-autosub',
                 'n_lines': len(lines),
                 'n_words': sum(len(l['text'].split()) for l in lines),
-                'lines': lines,
+                'lines': [l['text'] for l in lines],
             }
             json.dump(rec, open(f'dataset/{vid}.json', 'w', encoding='utf-8'),
                       ensure_ascii=False, indent=1)

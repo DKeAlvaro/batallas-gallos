@@ -24,10 +24,6 @@ def main():
                       ensure_ascii=False, separators=(',', ':'))
             meta = {k: d[k] for k in ('video_id', 'url', 'title', 'mcs', 'round', 'event',
                                       'year', 'format', 'duration_s', 'n_lines', 'n_words')}
-            # longitud total hablada (ultima linea - primera)
-            ls = d['lines']
-            meta['spoken_s'] = round(ls[-1]['end'] - ls[0]['start'], 1) if ls else 0
-            meta['wpm'] = round(d['n_words'] / (meta['spoken_s'] / 60), 1) if meta['spoken_s'] else 0
             if not first:
                 ix.write(',')
             json.dump(meta, ix, ensure_ascii=False, separators=(',', ':'))
@@ -38,10 +34,16 @@ def main():
     # corpus completo comprimido
     with open(src, 'rb') as f, gzip.open(os.path.join(OUT, 'dataset.jsonl.gz'), 'wb', compresslevel=9) as g:
         shutil.copyfileobj(f, g)
+    # version JS del indice: permite abrir la web con file:// sin servidor
+    with open(os.path.join(OUT, 'index.js'), 'w', encoding='utf-8') as jx:
+        jx.write('window.CORPUS=')
+        json.dump(index, jx, ensure_ascii=False, separators=(',', ':'))
+        jx.write(';\n')
     sz = lambda p: round(os.path.getsize(p) / 1e6, 2)
     print(f'{n} batallas')
     print(f'index.json      {sz(os.path.join(OUT,"index.json"))} MB')
-    print(f'battles/        {sz(BDIR) if os.path.isdir(BDIR) else 0} MB ({len(os.listdir(BDIR))} ficheros)')
+    print(f'index.js        {sz(os.path.join(OUT,"index.js"))} MB')
+    print(f'battles/        {sum(os.path.getsize(os.path.join(BDIR,f)) for f in os.listdir(BDIR))/1e6:.1f} MB ({len(os.listdir(BDIR))} ficheros)')
     print(f'dataset.jsonl.gz {sz(os.path.join(OUT,"dataset.jsonl.gz"))} MB')
 
 if __name__ == '__main__':

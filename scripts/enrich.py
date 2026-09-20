@@ -22,9 +22,16 @@ ROUNDS = [
 def norm(s):
     return unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower().strip()
 
+# Urban Roosters separa con ' I ' mayuscula: 'ACRU vs GAZIR I FMS WORLD SERIES 2025 I Jornada 2'
+SEP_I = re.compile(r'\s+I\s+(?=[A-Z0-9#\u00c0-\u00dc])')
+
+
 def parse_title(title, duration=None):
     out = {'raw_title': title, 'mcs': None, 'round': None, 'event': None, 'year': None,
            'format': None, 'noise': False}
+    # quita el separador ' I ' de las ligas, para que la cabeza sea solo 'A vs B'
+    if re.search(r'\bFMS\b|World Series|Jornada|Temporada', title, re.I):
+        title = SEP_I.sub(' \u2013 ', title).strip()
     # ruido evidente
     if re.search(r'\b(cypher|top \d|mejores|reaccion|resumen|entrevista|presentaci|minutos de|kids|anuncio|tráiler|trailer)\b', norm(title)):
         out['noise'] = True
