@@ -53,15 +53,46 @@
                 padding:.15rem .3rem; border-radius:3px; background:var(--papel2); color:var(--tenue);
                 border:1px solid var(--linea) }
   #texto p.ruido .tag { color:var(--acento); border-color:var(--acento) }
-  #resumen { margin:0 0 1rem; font-size:.78rem; color:var(--tenue) }
-  #resumen .chips { display:inline-flex; gap:.4rem; margin-left:.4rem; vertical-align:middle }
-  #resumen .chip { border:1px solid var(--linea); border-radius:10px; padding:.05rem .45rem; background:var(--campo) }
+  #texto p.destacado { outline:2px solid var(--acento); outline-offset:2px; border-radius:3px }
+  /* panel Jev de la batalla */
+  #panel { margin:0 0 1.4rem; border:1px solid var(--linea); border-radius:6px;
+           padding:.55rem .8rem .65rem; background:var(--campo); font-size:.78rem; color:var(--tenue) }
+  #panel .cab { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.4rem;
+                font:600 .72rem/1 "Arial Narrow",sans-serif; letter-spacing:.04em;
+                text-transform:uppercase; color:var(--tenue) }
+  #panel .cab .n { font-weight:400; text-transform:none; letter-spacing:0 }
+  .dist { display:flex; height:.6rem; border-radius:3px; overflow:hidden;
+          background:var(--papel2); border:1px solid var(--linea) }
+  .dist button { border:0; padding:0; height:100%; background:transparent; cursor:pointer;
+                 border-right:1px solid var(--campo) }
+  .dist button:last-child { border-right:0 }
+  .dist button:hover { filter:brightness(1.15) }
+  .dist .mixto   { background:color-mix(in srgb, #d8a012 55%, var(--campo)) }
+  .dist .ruido   { background:color-mix(in srgb, var(--acento) 55%, var(--campo)) }
+  .dist .corrupta{ background:color-mix(in srgb, #888 45%, var(--campo)) }
+  #panel .fila { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; margin-top:.45rem }
+  #panel .med { display:inline-flex; align-items:center; gap:.4rem }
+  .pips { display:inline-flex; gap:2px }
+  .pips i { width:.42rem; height:.42rem; border-radius:50%; border:1px solid var(--linea); background:var(--papel2) }
+  .pips i.on { background:var(--tinta); border-color:var(--tinta) }
+  #panel .leyenda { margin-left:auto; display:inline-flex; gap:.7rem; font-size:.7rem }
+  #panel .leyenda s { text-decoration:none; display:inline-block; width:.55rem; height:.55rem;
+                      border-radius:2px; vertical-align:-1px; margin-right:.25rem; border:1px solid var(--linea) }
+  #panel .leyenda .l-ok { background:var(--papel2) }
+  #panel .leyenda .l-mixto { background:color-mix(in srgb, #d8a012 55%, var(--campo)) }
+  #panel .leyenda .l-ruido { background:color-mix(in srgb, var(--acento) 55%, var(--campo)) }
+  #panel .leyenda .l-corrupta { background:color-mix(in srgb, #888 45%, var(--campo)) }
+  #panel .corruptos { color:var(--acento) }
   #filtro-j { margin-left:.5rem; font:inherit; font-size:.78rem; border:1px solid var(--linea);
               background:var(--campo); color:var(--tinta); padding:.15rem .3rem }
   #lista .mini { display:inline-block; margin-left:.35rem; font:600 .62rem/1 "Arial Narrow",sans-serif;
                  padding:.1rem .3rem; border-radius:3px; background:var(--papel2); color:var(--tenue);
                  border:1px solid var(--linea); vertical-align:1px }
   #lista .mini.ru { color:var(--acento); border-color:color-mix(in srgb, var(--acento) 50%, transparent) }
+  #lista .jbar { display:inline-block; width:3.2rem; height:.4rem; margin-left:.45rem; vertical-align:1px;
+                 border:1px solid var(--linea); border-radius:2px; background:var(--papel2); overflow:hidden }
+  #lista .jbar i { display:block; height:100%; background:color-mix(in srgb, var(--acento) 55%, var(--campo)) }
+  #lista .jbar i.c { background:color-mix(in srgb, #888 45%, var(--campo)) }
 </style>
 </head>
 <body>
@@ -123,13 +154,17 @@
     return `Jev · ruido ${b.ruido.toFixed(2)} · rapeo ${b.rapeo.toFixed(2)} (${Math.round(b.pct_rapeo/5*100)}%) · ` +
            `rima ${b.rima.toFixed(1)}/5 · punch ${b.punch.toFixed(1)}/5 · ${b.calidad}`;
   }
+  function pips(v) {  // medidor de 5 puntos para rima/punch
+    const n = Math.max(0, Math.min(5, Math.round(v)));
+    return `<span class="pips">${[0,1,2,3,4].map(i => `<i${i < n ? ' class="on"' : ''}></i>`).join('')}</span>`;
+  }
 
   function lista() {
     $('#lista').innerHTML = filtro.map(b => {
       const quien = (b.mcs || []).join(' vs ') || b.title || b.video_id;
       const donde = [b.event, b.round, b.year].filter(Boolean).join(' · ');
       const j = b.jev;
-      const chips = j ? `<span class="mini${j.pct_ruido > 30 ? ' ru' : ''}" title="${j.pct_ruido}% de bloques con ruido">${j.pct_ruido}%r</span>` +
+      const chips = j ? `<span class="jbar" title="Jev: ${j.pct_ruido}% de bloques con ruido · rima ${j.rima.toFixed(1)}/5 · punch ${j.punch.toFixed(1)}/5${j.n_corruptos ? ` · ${j.n_corruptos} corruptos` : ''}"><i class="${j.n_corruptos ? 'c' : ''}" style="width:${j.pct_ruido}%"></i></span>` +
                         `<span class="mini" title="rima media de Jev">R${j.rima.toFixed(1)}</span>` +
                         `<span class="mini" title="punch medio de Jev">P${j.punch.toFixed(1)}</span>` : '';
       return `<li><button data-id="${b.video_id}">
@@ -169,21 +204,39 @@
                     nf.format(b.n_words) + ' palabras'].filter(Boolean).join(' · ');
       const j = b.bloques ? (() => {
         const utiles = b.bloques.filter(x => x.ruido < 0.7);
-        const r = a => (a.reduce((s, x) => s + x, 0) / Math.max(a.length, 1)).toFixed(2);
+        const r = a => a.reduce((s, x) => s + x, 0) / Math.max(a.length, 1);
         const nCorr = b.bloques.filter(x => x.calidad === 'corrupta').length;
         return { pctRuido: Math.round(100 * (b.bloques.length - utiles.length) / b.bloques.length),
                  rima: r(utiles.map(x => x.rima)), punch: r(utiles.map(x => x.punch)), nCorr };
       })() : null;
-      const resumen = j ? `<div id="resumen">Jev: <span class="chip">${j.pctRuido}% ruido</span>` +
-        `<span class="chips"><span class="chip">rima ${j.rima}/5</span><span class="chip">punch ${j.punch}/5</span>` +
-        (j.nCorr ? `<span class="chip">${j.nCorr} corruptos</span>` : '') + `</span></div>` : '';
+      // barra de distribución: un segmento por bloque, proporcional a sus palabras;
+      // coloreado según la clase Jev y clicable para saltar al bloque
+      const barra = j ? (() => {
+        const total = b.bloques.reduce((s, x) => s + x.palabras, 0) || 1;
+        const segs = b.bloques.map((x, i) => {
+          const cls = claseJ(x) || 'ok';
+          return `<button class="${cls}" data-i0="${x.i0}" style="width:${(100 * x.palabras / total).toFixed(2)}%" ` +
+                 `title="Bloque ${i + 1} de ${b.bloques.length} · ${cls === 'ok' ? 'limpio' : cls} · ${tituloJ(x)}" ` +
+                 `aria-label="Ir al bloque ${i + 1}"></button>`;
+        }).join('');
+        return `<div class="dist" role="group" aria-label="Distribución de bloques según Jev">${segs}</div>`;
+      })() : '';
+      const panel = j ? `<div id="panel">
+        <div class="cab">Jev <span class="n">· ${b.bloques.length} bloques · ${j.pctRuido}% con ruido${j.nCorr ? ` · <span class="corruptos">${j.nCorr} corrupto${j.nCorr > 1 ? 's' : ''}</span>` : ''}</span>
+          <span class="leyenda"><span><s class="l-ok"></s>limpio</span><span><s class="l-mixto"></s>mixto</span><span><s class="l-ruido"></s>ruido</span><span><s class="l-corrupta"></s>corrupto</span></span></div>
+        ${barra}
+        <div class="fila">
+          <span class="med" title="rima media de los bloques limpios: ${j.rima.toFixed(2)}/5">rima ${pips(j.rima)} ${j.rima.toFixed(1)}</span>
+          <span class="med" title="punch medio de los bloques limpios: ${j.punch.toFixed(2)}/5">punch ${pips(j.punch)} ${j.punch.toFixed(1)}</span>
+        </div>
+      </div>` : '';
       caja.innerHTML = `<h2>${mcs.length ? mcs.join(' <span class="contra">contra</span> ') : esc(b.title || id)}</h2>
-        <p class="meta">${esc(meta)} · <a href="${b.url}" target="_blank" rel="noopener">vídeo</a></p>` + resumen +
+        <p class="meta">${esc(meta)} · <a href="${b.url}" target="_blank" rel="noopener">vídeo</a></p>` + panel +
         parrafos(b.lines).map(p => {
           const t = tagDe(p.i0, b.bloques);
           const cls = claseJ(t);
           const tag = cls ? `<span class="tag">${cls === 'ruido' ? 'ruido' : cls === 'corrupta' ? 'corrupto' : 'mixto'}</span>` : '';
-          return `<p class="barra ${cls}" ${t ? `title="${esc(tituloJ(t))}"` : ''}>${tag}${esc(p.t)}</p>`;
+          return `<p class="barra ${cls}" data-i0="${p.i0}" ${t ? `title="${esc(tituloJ(t))}"` : ''}>${tag}${esc(p.t)}</p>`;
         }).join('');
       caja.scrollTop = 0;
     } catch (e) {
@@ -202,6 +255,16 @@
   $('#lista').addEventListener('click', e => {
     const b = e.target.closest('button[data-id]');
     if (b) abre(b.dataset.id);
+  });
+  // clic en un segmento de la barra: baja al bloque correspondiente y lo destaca un momento
+  $('#texto').addEventListener('click', e => {
+    const s = e.target.closest('.dist button[data-i0]');
+    if (!s) return;
+    const destino = $('#texto').querySelector(`p.barra[data-i0="${s.dataset.i0}"]`);
+    if (!destino) return;
+    destino.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    destino.classList.add('destacado');
+    setTimeout(() => destino.classList.remove('destacado'), 1600);
   });
   lista();
 </script>
