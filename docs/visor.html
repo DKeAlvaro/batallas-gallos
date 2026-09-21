@@ -54,35 +54,21 @@
                 border:1px solid var(--linea) }
   #texto p.ruido .tag { color:var(--acento); border-color:var(--acento) }
   #texto p.destacado { outline:2px solid var(--acento); outline-offset:2px; border-radius:3px }
-  /* panel Jev de la batalla */
-  #panel { margin:0 0 1.4rem; border:1px solid var(--linea); border-radius:6px;
-           padding:.55rem .8rem .65rem; background:var(--campo); font-size:.78rem; color:var(--tenue) }
-  #panel .cab { display:flex; align-items:baseline; gap:.5rem; margin-bottom:.4rem;
-                font:600 .72rem/1 "Arial Narrow",sans-serif; letter-spacing:.04em;
-                text-transform:uppercase; color:var(--tenue) }
-  #panel .cab .n { font-weight:400; text-transform:none; letter-spacing:0 }
-  .dist { display:flex; height:.6rem; border-radius:3px; overflow:hidden;
-          background:var(--papel2); border:1px solid var(--linea) }
-  .dist button { border:0; padding:0; height:100%; background:transparent; cursor:pointer;
-                 border-right:1px solid var(--campo) }
-  .dist button:last-child { border-right:0 }
-  .dist button:hover { filter:brightness(1.15) }
-  .dist .mixto   { background:color-mix(in srgb, #d8a012 55%, var(--campo)) }
-  .dist .ruido   { background:color-mix(in srgb, var(--acento) 55%, var(--campo)) }
-  .dist .corrupta{ background:color-mix(in srgb, #888 45%, var(--campo)) }
-  #panel .fila { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; margin-top:.45rem }
-  #panel .med { display:inline-flex; align-items:center; gap:.4rem }
-  .pips { display:inline-flex; gap:2px }
-  .pips i { width:.42rem; height:.42rem; border-radius:50%; border:1px solid var(--linea); background:var(--papel2) }
-  .pips i.on { background:var(--tinta); border-color:var(--tinta) }
-  #panel .leyenda { margin-left:auto; display:inline-flex; gap:.7rem; font-size:.7rem }
-  #panel .leyenda s { text-decoration:none; display:inline-block; width:.55rem; height:.55rem;
-                      border-radius:2px; vertical-align:-1px; margin-right:.25rem; border:1px solid var(--linea) }
-  #panel .leyenda .l-ok { background:var(--papel2) }
-  #panel .leyenda .l-mixto { background:color-mix(in srgb, #d8a012 55%, var(--campo)) }
-  #panel .leyenda .l-ruido { background:color-mix(in srgb, var(--acento) 55%, var(--campo)) }
-  #panel .leyenda .l-corrupta { background:color-mix(in srgb, #888 45%, var(--campo)) }
-  #panel .corruptos { color:var(--acento) }
+  /* anotaciones Jev: integradas en la columna de texto, sin cajas */
+  #jev { max-width:66ch; margin:0 0 1.2rem; font-size:.78rem; color:var(--tenue) }
+  #jev .linea { display:flex; align-items:baseline; gap:.6rem; flex-wrap:wrap }
+  #jev .dist { flex:1; min-width:8rem; height:.45rem; display:flex; border-radius:2px; overflow:hidden;
+               background:var(--papel2); align-self:center }
+  #jev .dist button { border:0; padding:0; height:100%; background:transparent; cursor:pointer }
+  #jev .dist button:hover { filter:brightness(1.2) }
+  #jev .dist .mixto   { background:color-mix(in srgb, #d8a012 60%, var(--campo)) }
+  #jev .dist .ruido   { background:color-mix(in srgb, var(--acento) 60%, var(--campo)) }
+  #jev .dist .corrupta{ background:color-mix(in srgb, #888 50%, var(--campo)) }
+  #jev .med { white-space:nowrap }
+  #jev .pips { display:inline-flex; gap:2px; vertical-align:1px; margin:0 .15rem }
+  #jev .pips i { width:.38rem; height:.38rem; border-radius:50%; border:1px solid var(--linea); background:var(--papel2) }
+  #jev .pips i.on { background:var(--tinta); border-color:var(--tinta) }
+  #jev .aviso { color:var(--acento) }
   #filtro-j { margin-left:.5rem; font:inherit; font-size:.78rem; border:1px solid var(--linea);
               background:var(--campo); color:var(--tinta); padding:.15rem .3rem }
   #lista .mini { display:inline-block; margin-left:.35rem; font:600 .62rem/1 "Arial Narrow",sans-serif;
@@ -221,13 +207,12 @@
         }).join('');
         return `<div class="dist" role="group" aria-label="Distribución de bloques según Jev">${segs}</div>`;
       })() : '';
-      const panel = j ? `<div id="panel">
-        <div class="cab">Jev <span class="n">· ${b.bloques.length} bloques · ${j.pctRuido}% con ruido${j.nCorr ? ` · <span class="corruptos">${j.nCorr} corrupto${j.nCorr > 1 ? 's' : ''}</span>` : ''}</span>
-          <span class="leyenda"><span><s class="l-ok"></s>limpio</span><span><s class="l-mixto"></s>mixto</span><span><s class="l-ruido"></s>ruido</span><span><s class="l-corrupta"></s>corrupto</span></span></div>
-        ${barra}
-        <div class="fila">
-          <span class="med" title="rima media de los bloques limpios: ${j.rima.toFixed(2)}/5">rima ${pips(j.rima)} ${j.rima.toFixed(1)}</span>
-          <span class="med" title="punch medio de los bloques limpios: ${j.punch.toFixed(2)}/5">punch ${pips(j.punch)} ${j.punch.toFixed(1)}</span>
+      const panel = j ? `<div id="jev">
+        <div class="linea">
+          <span class="dist" role="group" aria-label="Distribución de bloques según Jev">${barra}</span>
+          <span class="med" title="rima media de los bloques limpios: ${j.rima.toFixed(2)}/5">rima${pips(j.rima)}${j.rima.toFixed(1)}</span>
+          <span class="med" title="punch medio de los bloques limpios: ${j.punch.toFixed(2)}/5">punch${pips(j.punch)}${j.punch.toFixed(1)}</span>
+          <span class="med${j.pctRuido > 15 ? ' aviso' : ''}" title="${j.pctRuido}% de los bloques con ruido${j.nCorr ? `, ${j.nCorr} corruptos` : ''}">${j.pctRuido}% ruido${j.nCorr ? ` · ${j.nCorr} corr` : ''}</span>
         </div>
       </div>` : '';
       caja.innerHTML = `<h2>${mcs.length ? mcs.join(' <span class="contra">contra</span> ') : esc(b.title || id)}</h2>
